@@ -255,8 +255,8 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  github-pages
-  jekyll-theme-cayman
+  github-pages (~> 227)
+  jekyll-theme-cayman (~> 0.2.0)
   tzinfo (~> 1.2)
   tzinfo-data
   wdm (~> 0.1.1)
