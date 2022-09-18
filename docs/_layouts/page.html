@@ -33,5 +33,19 @@
     </main>
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <script>
+      function hide_all() {
+          divs = document.querySelectorAll("div.toggle_module");
+          for (const div of divs) {
+              div.style.display = "none";
+          }
+      }
+
+      function toggle(id) {
+          hide_all();
+          var x = document.getElementById(id);
+          x.style.display = "block";
+      }
+    </script>
   </body>
 </html>

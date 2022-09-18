@@ -4,5 +4,7 @@ title: Motivation
 permalink: /motivation/
 ---
 
-## Athletics: Universal Expression of Humanity
-## Sports at Human scales
+# Athletics at Human Scale
+
+
+# Project Vision

@@ -3,3 +3,21 @@
 
 @import "{{ site.theme }}";
 
+figure figcaption {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    text-align: center;
+    font-size: larger;
+}
+
+.multi_option {
+    color: #fff;
+    text-align: center;
+    background-color: #159957;
+    background-image: linear-gradient(120deg, #155799, #159957);
+    padding: 0.5rem 0.5rem;
+
+    .btn {
+        margin-bottom: 1rem;
+    }
+}

@@ -35,6 +35,10 @@ nav:
     url: ""
   - title: Motivation
     url: "motivation"
+  - title: Overview
+    url: "overview"
+  - title: Gallery
+    url: "gallery"
 
 # Build settings
 theme: jekyll-theme-cayman
