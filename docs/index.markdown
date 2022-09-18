@@ -1,5 +1,6 @@
 ---
 layout: default
+title: Home
 ---
 <!--
 # ESTHER - Wheelchair Tennis Robot
