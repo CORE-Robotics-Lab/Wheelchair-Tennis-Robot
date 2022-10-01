@@ -26,3 +26,14 @@ figure figcaption {
 .site-footer-credits {
     white-space: nowrap;
 }
+
+#logo-box {
+    display: flex;
+    max-width: 100%;
+}
+.logo {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    width: 40%;
+    align-self: center;
+}
