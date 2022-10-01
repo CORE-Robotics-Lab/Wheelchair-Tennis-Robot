@@ -1,0 +1,39 @@
+
+// @import "{{ site.theme }}";
+
+figure figcaption {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    text-align: center;
+    font-size: larger;
+}
+
+.multi_option {
+    color: #fff;
+    text-align: center;
+    background-color: #159957;
+    background-image: linear-gradient(120deg, #155799, #159957);
+    padding: 1rem 1rem;
+
+    .btn {
+        margin-bottom: 1rem;
+    }
+}
+
+.site-footer-owner {
+    white-space: nowrap;
+}
+.site-footer-credits {
+    white-space: nowrap;
+}
+
+#logo-box {
+    display: flex;
+    max-width: 100%;
+}
+.logo {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    width: 40%;
+    align-self: center;
+}
