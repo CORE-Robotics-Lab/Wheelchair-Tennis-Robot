@@ -1,7 +1,5 @@
----
----
 
-@import "{{ site.theme }}";
+// @import "{{ site.theme }}";
 
 figure figcaption {
     padding-top: 8px;
@@ -20,4 +18,11 @@ figure figcaption {
     .btn {
         margin-bottom: 1rem;
     }
+}
+
+.site-footer-owner {
+    white-space: nowrap;
+}
+.site-footer-credits {
+    white-space: nowrap;
 }
