@@ -1,4 +1,3 @@
-
 // @import "{{ site.theme }}";
 
 figure figcaption {
@@ -9,10 +8,10 @@ figure figcaption {
 }
 
 .multi_option {
-    color: #fff;
+    // color: #fff;
     text-align: center;
-    background-color: #159957;
-    background-image: linear-gradient(120deg, #155799, #159957);
+    // background-color: #159957;
+    // background-image: linear-gradient(120deg, #155799, #159957);
     padding: 1rem 1rem;
 
     .btn {
@@ -23,6 +22,7 @@ figure figcaption {
 .site-footer-owner {
     white-space: nowrap;
 }
+
 .site-footer-credits {
     white-space: nowrap;
 }
@@ -31,6 +31,7 @@ figure figcaption {
     display: flex;
     max-width: 100%;
 }
+
 .logo {
     padding-left: 1rem;
     padding-right: 1rem;
