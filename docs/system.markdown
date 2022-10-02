@@ -2,13 +2,9 @@
 layout: page
 title: System Design
 permalink: /system/
+nav_order: 3
 ---
 # Overview
-
-<figure>
-    <!-- <figcaption><b>WTR system architecture</b></figcaption> -->
-    <img src="{{ 'assets/images/wtr_arch.png' | relative_url }}">
-</figure>
 
 # System Explorer
 Click on any of the following components to learn more:
