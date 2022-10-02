@@ -13,6 +13,8 @@ nav_order: 4
   - [Drive Train](#drive-train)
   - [Planner](#planner)
   - [Strategizer](#strategizer)
+  - [Swing](#swing)
+  - [Human Serve](#human-serve)
   - [Offroading](#offroading)
 
 
@@ -41,6 +43,22 @@ This video shows the robot's perception of the expected ball trajectory overlaye
 
 <video width="100%" autoplay controls loop muted poster>
     <source src="../assets/videos/rollout.mp4" type="video/mp4">
+</video>
+
+## Swing
+
+With the wheelchair in the correct spot, it is able to use the arm swing a tennis racket at the tennis ball. This video shows the wheelchair stationary swinging at a tennis ball that has the correct trajectory. 
+
+<video width="100%" autoplay controls loop muted poster>
+    <source src="../assets/videos/swing.mp4" type="video/mp4">
+</video>
+
+## Human Serve
+
+When humans serve the ball, they inevitably add a lot of unintended spin to the ball. This makes it very hard to know where the ball is going after it hits the ground. This video shows how the wheelchair is capable of hitting the ball even served from a human. 
+
+<video width="100%" autoplay controls loop muted poster>
+    <source src="../assets/videos/human.mp4" type="video/mp4">
 </video>
 
 ## Offroading
