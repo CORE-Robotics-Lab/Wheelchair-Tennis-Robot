@@ -39,9 +39,9 @@ search_enabled: false
 heading_anchors: true
 
 # # Aux links for the upper right navigation
-# aux_links:
-#   "ESTHER on GitHub":
-#     - "//github.com/CORE-Robotics-Lab/Wheelchair-Tennis-Robot"
+aux_links:
+  "ESTHER on GitHub":
+    - "//github.com/CORE-Robotics-Lab/Wheelchair-Tennis-Robot"
 
 # Makes Aux links open in a new tab. Default is false
 aux_links_new_tab: true
