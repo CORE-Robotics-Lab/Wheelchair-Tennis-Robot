@@ -7,3 +7,4 @@ nav_order: 5
 
 # Getting Started
 
+To get started recreating this project, check out our readme [here](https://github.com/CORE-Robotics-Lab/Wheelchair-Tennis-Robot).
