@@ -2,7 +2,7 @@
 layout: page
 title: System Design
 permalink: /system/
-nav_order: 3
+nav_order: 2
 has_children: true
 has_toc: True
 ---

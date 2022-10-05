@@ -1,13 +1,22 @@
 ---
 layout: page
-title: Performance
-permalink: /performance/
-nav_order: 4
+title: Gallery
+permalink: /gallery/
+nav_order: 3
+has_toc: True
 ---
 
-# Performance
+# Gallery
+{: .no_toc }
 
-- [Performance](#performance)
+## Table of contents
+{: .no_toc .text-delta }
+
+- TOC
+{:toc}
+
+
+<!-- - [Gallery](#gallery)
   - [Drive Train](#drive-train)
   - [Localization](#localization)
   - [Ball Detection](#ball-detection)
@@ -17,7 +26,7 @@ nav_order: 4
   - [Overall System](#overall-system)
   - [Human Serve](#human-serve)
   - [Outdoor Courts](#outdoor-courts)
-  - [Offroading](#offroading)
+  - [Offroading](#offroading) -->
 
 
 Here are some videos of the current state of the robot.
