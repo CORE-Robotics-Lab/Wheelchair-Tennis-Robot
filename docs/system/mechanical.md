@@ -15,6 +15,34 @@ parent: System Design
 
 
 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+<style>
+    model-viewer {
+        width: 100%;
+        height: 30rem
+    }
+    .hotspot{
+        display: block;
+        width: 20px;
+        height: 20px;
+        border-radius: 10px;
+        border: none;
+        background-color: blue;
+        box-sizing: border-box;
+        pointer-events: none;
+    }
+    .annotation{
+        background-color: #888888;
+        position: absolute;
+        transform: translate(10px, 10px);
+        border-radius: 10px;
+        padding: 10px;
+    }
+    /* This keeps child nodes hidden while the element loads */
+    :not(:defined) > * {
+        display: none;
+    }
+</style>
+
 
 <model-viewer alt="ESTHER 3D Model" src="../../assets/esther.glb" ar environment-image="" poster="" shadow-intensity="1" auto-rotate camera-controls touch-action="pan-y">
     <button class="hotspot" slot="hotspot-wheelchair" data-position="0 0 0" data-normal="0 0 1"></button>
