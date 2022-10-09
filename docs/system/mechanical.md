@@ -15,6 +15,7 @@ parent: System Design
 
 
 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+<!-- 3D model viewer style settings -->
 <style>
     model-viewer {
         width: 100%;
@@ -45,9 +46,15 @@ parent: System Design
 
 
 <model-viewer alt="ESTHER 3D Model" src="../../assets/esther.glb" ar environment-image="" poster="" shadow-intensity="1" auto-rotate camera-controls touch-action="pan-y">
-    <button class="hotspot" slot="hotspot-wheelchair" data-position="0 0 0" data-normal="0 0 1"></button>
-    <button class="hotspot" slot="hotspot-barrett" data-position="0 0.5 0.25" data-normal="0 0 1"></button>
-    <button class="hotspot" slot="hotspot-racket" data-position="0 0.75 0.5" data-normal="0 0 1"></button>
+    <button class="hotspot" slot="hotspot-wheelchair" data-position="0 0 0" data-normal="0 0 1">
+        <div class="annotation">Wheelchair Base</div>
+    </button>
+    <button class="hotspot" slot="hotspot-barrett" data-position="0 0.5 0.25" data-normal="0 0 1">
+        <div class="annotation">Robot Arm</div>
+    </button>
+    <button class="hotspot" slot="hotspot-racket" data-position="0 0.75 0.5" data-normal="0 0 1">
+        <div class="annotation">Tennis Racket</div>
+    </button>
 </model-viewer>
 
 
