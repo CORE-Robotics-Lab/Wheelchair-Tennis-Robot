@@ -13,7 +13,7 @@ a.k.a. ESTHER (<u>E</u>xperimental <u>S</u>port <u>T</u>ennis w<u>HE</u>elchair 
 
 
 
-[Paper](){: .btn .btn-outline }
+[Paper](assets/paper.pdf){: .btn .btn-outline }
 [arXiv](https://arxiv.org){: .btn .btn-outline }
 [Code]({{ site.github.repository_url }}){: .btn .btn-outline }
 
