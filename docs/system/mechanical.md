@@ -51,7 +51,7 @@ parent: System Design
 </style>
 
 
-<model-viewer alt="ESTHER 3D Model" src="../../assets/esther.glb" ar environment-image="" poster="" shadow-intensity="1" auto-rotate camera-controls touch-action="pan-y">
+<model-viewer alt="ESTHER 3D Model" src="../../assets/esther_.glb" ar environment-image="" poster="" shadow-intensity="1" auto-rotate camera-controls touch-action="pan-y">
     <button class="hotspot" slot="hotspot-wheelchair" data-position="0.42 0.3 0.3" data-normal="0 0 1">
         <div class="annotation">Wheelchair Base</div>
     </button>
