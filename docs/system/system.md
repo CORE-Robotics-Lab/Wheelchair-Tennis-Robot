@@ -11,7 +11,3 @@ has_toc: True
 ## Click on any of the following components to learn more:
 {: .no_toc }
 
-
-<!-- ## Lab and Court Setup -->
-
-

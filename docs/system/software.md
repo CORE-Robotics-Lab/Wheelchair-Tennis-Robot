@@ -10,20 +10,15 @@ parent: System Design
 
 ## Table of contents
 {: .no_toc .text-delta }
-
 - TOC
 {:toc}
 
-## Wheelchair Localization
+## Ball Detection and Tracking
+### Camera Calibration
+### Ball Detection
+### Extended Kalman Filter and Rollout
 
-
-## Ball Detection
-
-
-## Extended Kalman Filter and Rollout
-
-
-## Strategizer
-
-
-## Wheelchair Drive Controller
+## Wheelchair Planner
+### Wheelchair Localization
+### Wheelchair Drive Controller
+### Strategizer
