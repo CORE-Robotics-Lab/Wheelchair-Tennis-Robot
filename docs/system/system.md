@@ -8,6 +8,6 @@ has_toc: True
 ---
 # System Design
 {: .no_toc }
-## Click on any of the following components to learn more:
+#### Click on any of the following components to learn more:
 {: .no_toc }
 
