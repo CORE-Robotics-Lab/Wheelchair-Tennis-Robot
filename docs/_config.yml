@@ -53,6 +53,11 @@ nav_sort: case_sensitive # Capital letters sorted before lowercase
 # Color scheme supports "light" (default) and "dark"
 color_scheme: custom_color
 
+# Callouts
+callouts:
+  highlight:
+    color: yellow
+
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
