@@ -6,6 +6,7 @@ nav_order: 5
 ---
 
 # Credits
+
 - Zulfiqar Zaidi
 - Daniel Martin
 - Nathaniel Belles
@@ -31,4 +32,5 @@ nav_order: 5
 - Matthew Gombolay
 
 # Acknowledgements
-Special thanks to...
+
+Special thanks to Byers Tennis Complex at Georgia Institute of Technology for allowing us to use their indoor tennis courts for testing and demos.
