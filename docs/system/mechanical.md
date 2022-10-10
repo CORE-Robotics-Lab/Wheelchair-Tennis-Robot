@@ -77,3 +77,8 @@ We designed a chain-drive system to deliver power from the motors to the wheels.
 ### End Effector
 <img width="100%" src="../../assets/img/racket_clamp_stress.png">
 <img width="100%" src="../../assets/img/racket_clamp_stress_animation.gif">
+
+
+---
+
+Now check out the [electrical](https://core-robotics-lab.github.io/Wheelchair-Tennis-Robot/system/electrical/) page to see how to setup the electrycal system. 
