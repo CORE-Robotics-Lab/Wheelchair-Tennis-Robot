@@ -63,12 +63,6 @@ parent: System Design
     </button>
 </model-viewer>
 
-## Parts
-Hello my name is
-
-{: .highlight }
-A paragraph
-
 ## Drivetrain
 The Top End Pro Tennis Wheelchair was used as the base for the drivetrain. This was powered by two ODrive D6374 motors with a 1:20 gear reduction.
 ### Wheelchair
@@ -109,3 +103,8 @@ Since the racket holder is an area of high stress during a swing, a visualizatio
     <img width="49%" src="../../assets/img/racket_clamp_stress.png">
     <img width="49%" src="../../assets/img/racket_clamp_stress_animation.gif">
 </p>
+
+
+---
+
+Now check out the [electrical](https://core-robotics-lab.github.io/Wheelchair-Tennis-Robot/system/electrical/) page to see how to setup the electrycal system. 

@@ -22,3 +22,7 @@ parent: System Design
 ### Wheelchair Localization
 ### Wheelchair Drive Controller
 ### Strategizer
+
+---
+
+Now check out the [gallery](https://core-robotics-lab.github.io/Wheelchair-Tennis-Robot/gallery/) page to see how to see some videos of how well the system works. 
