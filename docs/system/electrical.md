@@ -49,4 +49,5 @@ To get the ODrive setup to communicate with the Teensy over UART and set up cont
 
 ---
 
+{: .highlight }
 Now check out the [software](https://core-robotics-lab.github.io/Wheelchair-Tennis-Robot/system/software/) page to see how to setup the software system. 

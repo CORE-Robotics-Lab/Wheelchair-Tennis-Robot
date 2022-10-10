@@ -107,4 +107,5 @@ Since the racket holder is an area of high stress during a swing, a visualizatio
 
 ---
 
-Now check out the [electrical](https://core-robotics-lab.github.io/Wheelchair-Tennis-Robot/system/electrical/) page to see how to setup the electrycal system. 
+{: .highlight }
+Now check out the [electrical](https://core-robotics-lab.github.io/Wheelchair-Tennis-Robot/system/electrical/) page to see how to setup the electrical system. 

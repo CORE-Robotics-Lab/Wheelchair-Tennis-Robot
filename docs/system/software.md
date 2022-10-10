@@ -25,4 +25,5 @@ parent: System Design
 
 ---
 
+{: .highlight }
 Now check out the [gallery](https://core-robotics-lab.github.io/Wheelchair-Tennis-Robot/gallery/) page to see how to see some videos of how well the system works. 
