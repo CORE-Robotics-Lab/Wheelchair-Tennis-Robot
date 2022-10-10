@@ -108,13 +108,13 @@ Assemble the motors with the 3D printed motor enclosures and motor enclosure pla
     <img width="80%" src="../../assets/img/mechanical/chain_drive_close.jpg">
 </p>
 
-On the output shaft of the gearbox, loosely attach the small sprocket to be tightened later during chain tensioning. Mount the machined large sprockets to the wheel of the drivetrain. Install chain around the wheel and motor sprockets, and tighten the motor sprocket on so that the sprockets and chain are aligned. Finally, attach the tensioner and slide downwards onto the chain to remove slack. The final assembly can be seen below.
+On the output shaft of the gearbox, loosely attach the small sprocket which will be tightened later during chain tensioning. Mount the machined large sprockets to the wheel of the drivetrain, and install chain around the wheel and motor sprockets. Tighten the motor sprocket so that the sprockets and chain are aligned. Finally, attach the tensioner and slide downwards onto the chain to remove slack. The final assembly can be seen below.
 <p style="text-align:center;">
     <img width="80%" src="../../assets/img/mechanical/chain_drive_side.jpg">
 </p>
 
 ## Manipulator
-A HEAD Graphene Instinct Power tennis racket was attached to a 7-degree-of-freedom Barrett robot arm was 
+A HEAD Graphene Instinct Power tennis racket was attached to a 7-degree-of-freedom Barrett robot arm.
 ### Barrett Arm
 To attach the robot arm to the wheelchair, remove the cloth seat, handles, and backrest from the wheelchair. The steel waterjet seat plate can then be attached to the wheelchair and used as an anchor point for the robot arm.
 
