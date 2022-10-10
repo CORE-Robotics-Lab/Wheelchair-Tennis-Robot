@@ -63,13 +63,12 @@ parent: System Design
     </button>
 </model-viewer>
 
-
 ## Drivetrain
 We designed a chain-drive system to deliver power from the motors to the wheels. Power from the battery is delivered through an ODrive motor controller to two ODrive D6374 motors. The motors for both wheels are coupled to a 1:10 ratio speed-reducer planetary gearbox. The gearbox output shaft is coupled with the wheel through a chain and sprocket system that provides an additional 1:2 speed reduction to give a total reduction of 1:20. With the motors rotating at maximum speed, the wheelchair can achieve linear velocities of up to 10 m/s and in-place angular yaw velocity of up to 20 rad/s. A chain drive system has higher durability, torque capacity, increased tolerances, and a simpler design versus belt drive or friction drive systems.\
 
 ### Wheelchair
 ### Chain Drive
-<img width="50%" src="../../assets/img/paper/chain_drive_2.png">
+<img width="49%" src="../../assets/img/paper/chain_drive_2.png">
 <img width="50%" src="../../assets/img/paper/chain_drive_3.png">
 
 ## Manipulator
