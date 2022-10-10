@@ -14,7 +14,12 @@ parent: System Design
 {:toc}  
 
 ## Parts
-- [ ] 
+
+| Item           | Part Link                                                                                                                                             | Comments |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| GBoost Battery | [https://www.gboost.bike/shop/batteries/system-battery-extra-performance/](https://www.gboost.bike/shop/batteries/system-battery-extra-performance/)] |          |
+| ODrive 3.6 56V | [https://odriverobotics.com/shop/odrive-v36](https://odriverobotics.com/shop/odrive-v36)                                                              |          |
+| Teensy 4.1     | [https://www.pjrc.com/store/teensy41.html](https://www.pjrc.com/store/teensy41.html)                                                                  |          |
 
 ## Wiring
 
@@ -35,3 +40,4 @@ By using an Arduino add-on called [Teensyduino](https://www.pjrc.com/teensy/teen
 ### Uploading ODrive Config
 
 To get the ODrive setup to communicate with the Teensy over UART and set up control mode values, we need to upload the configuration file to the ODrive. Start by powering on the ODrive by plugging it into the 48V eBike battery (or plugging it into a wall power supply). Install the [odrivetool](https://docs.odriverobotics.com/v/0.5.5/odrivetool.html) by following the installation instructions [here](https://docs.odriverobotics.com/v/0.5.5/getting-started.html#downloading-and-installing-odriveool). Then plug the ODrive into the computer via USB and upload the [config.json](https://github.com/CORE-Robotics-Lab/Wheelchair-Tennis-Robot/tree/main/firmware/odrive) using the `odrivetool restore-config config.json` command from a terminal. More info on configuration restore can be found [here](https://docs.odriverobotics.com/v/0.5.5/odrivetool.html#configuration-backup).
+
