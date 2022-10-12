@@ -20,6 +20,8 @@ nav_order: 5
 
 Special thanks to Byers Tennis Complex at Georgia Institute of Technology for allowing us to use their indoor tennis courts for testing and demos.
 
+Special thanks also goes to Pannag Sanketi at Google for helping in providing funding for the project. 
+
 
 # The Team
 
