@@ -13,7 +13,12 @@ parent: System Design
 - TOC
 {:toc}
 
-## Ball Detection and Tracking
+## Code
+For more info on our software system design, check out the software package [here](https://github.com/CORE-Robotics-Lab/Wheelchair-Tennis-Robot/blob/main/software/code.zip).
+
+
+
+<!-- ## Ball Detection and Tracking
 ### Camera Calibration
 ### Ball Detection
 ### Extended Kalman Filter and Rollout
@@ -21,7 +26,7 @@ parent: System Design
 ## Wheelchair Planner
 ### Wheelchair Localization
 ### Wheelchair Drive Controller
-### Strategizer
+### Strategizer -->
 
 ---
 
