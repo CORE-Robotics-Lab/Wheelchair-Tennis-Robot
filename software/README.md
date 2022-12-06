@@ -31,7 +31,7 @@ Our video system is mainly composed of 6 camera tripod stands with a:
 - Battery Pack (Power Supply)
 
 <p align="center">
-    <img src="documents/photos/zed_diagram.png" alt="Court Vision" width="400" />
+    <img src="../docs/assets/img/paper/detection_module.png" alt="Court Vision" width="400" />
 </p>
 
 positioned around the tennis court to capture ball movements. 
