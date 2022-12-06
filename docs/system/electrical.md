@@ -25,6 +25,7 @@ parent: System Design
 | Wireless Relay (1x)                | [https://www.amazon.com/dp/B098RSF6X3/](https://www.amazon.com/dp/B098RSF6X3/)                                                                       |          |
 | 4-Channel Relay Board (1x)         | [https://www.amazon.com/dp/B07BDJJTLZ/](https://www.amazon.com/dp/B07BDJJTLZ/)                                                                       |          |
 | Light Indicator Tower (1x)         | [https://www.amazon.com/dp/B01NBJ0K0W/](https://www.amazon.com/dp/B01NBJ0K0W/)                                                                       |          |
+| Anker 535 PowerHouse (1x)          | [https://www.anker.com/products/a1751?variant=41686355771542](https://www.anker.com/products/a1751?variant=41686355771542)                           |          |
 
 ## Wiring
 
