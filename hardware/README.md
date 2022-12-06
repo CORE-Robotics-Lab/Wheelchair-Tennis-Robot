@@ -1,5 +1,5 @@
 # Hardware
 
-[Electrical System](electrical/README.md)
+[Electrical System](electrical/)
 
-[Mechanical System](mechanical/README.md)
+[Mechanical System](mechanical/)
