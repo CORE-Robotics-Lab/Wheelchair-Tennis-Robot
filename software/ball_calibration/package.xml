@@ -1,0 +1,25 @@
+<package>
+
+  <name>ball_calibration</name>
+  <version>0.3.1</version>
+  <description>
+    For WTR vision
+  </description>
+  <author email="assistant@moveit.ros.org">MoveIt Setup Assistant</author>
+  <maintainer email="assistant@moveit.ros.org">MoveIt Setup Assistant</maintainer>
+
+  <license>BSD</license>
+
+  <url type="website">http://moveit.ros.org/</url>
+  <url type="bugtracker">https://github.com/ros-planning/moveit_setup_assistant/issues</url>
+  <url type="repository">https://github.com/ros-planning/moveit_setup_assistant</url>
+
+  <!-- <run_depend>zed_wrapper</run_depend> -->
+  <run_depend>apriltag_ros</run_depend>
+  <run_depend>hector_trajectory_server</run_depend>
+  <run_depend>ball_localization</run_depend>
+  <build_depend>ball_localization</build_depend>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+</package>

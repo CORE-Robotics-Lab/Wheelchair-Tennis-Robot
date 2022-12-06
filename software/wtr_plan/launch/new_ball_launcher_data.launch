@@ -1,0 +1,35 @@
+<launch>
+ <node pkg="rosbag" type="record" name="rosbag_record"
+       args="record -o /home/core-robotics/court_bags/new_ball_launcher/aug12_ball_launcher_tee_faster
+            /ball_1_pose
+            /ball_2_pose
+            /ball_3_pose
+            /ball_4_pose
+            /ball_5_pose
+            /ball_6_pose
+            /ball_1_pose_transformed
+            /ball_2_pose_transformed
+            /ball_3_pose_transformed
+            /ball_4_pose_transformed
+            /ball_5_pose_transformed
+            /ball_6_pose_transformed
+
+
+            /ball_odometry
+
+            /ball/event
+            /ball/joint_states
+            /ball/odometry/reset
+            
+            /ball/set_pose
+
+            
+            
+            "/>
+</launch>
+
+
+
+
+
+

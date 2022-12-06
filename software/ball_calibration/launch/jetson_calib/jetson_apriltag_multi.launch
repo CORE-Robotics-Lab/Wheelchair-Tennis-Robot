@@ -1,0 +1,30 @@
+<launch>
+    <node name="rqt_gui" pkg="rqt_gui" type="rqt_gui" 
+         args="--perspective-file $(find ball_calibration)/rviz/apriltag.perspective"/>
+
+    <include file="$(find ball_calibration)/launch/jetson_calib/jetson_apriltag_single.launch">
+        <arg name="id"  value="1" />
+    </include>
+
+    <include file="$(find ball_calibration)/launch/jetson_calib/jetson_apriltag_single.launch">
+        <arg name="id"  value="2" />
+    </include>
+
+    <!-- <include file="$(find ball_calibration)/launch/jetson_calib/jetson_apriltag_single.launch">
+        <arg name="id"  value="3" />
+    </include> -->
+
+    <include file="$(find ball_calibration)/launch/jetson_calib/jetson_apriltag_single.launch">
+        <arg name="id"  value="4" />
+    </include>
+
+    <include file="$(find ball_calibration)/launch/jetson_calib/jetson_apriltag_single.launch">
+        <arg name="id"  value="5" />
+        <arg name="ip"  value="7" />
+    </include>
+
+    <include file="$(find ball_calibration)/launch/jetson_calib/jetson_apriltag_single.launch">
+        <arg name="id"  value="6" />
+    </include>
+
+</launch>

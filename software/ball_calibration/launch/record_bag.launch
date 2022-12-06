@@ -1,0 +1,17 @@
+<launch>
+ <node pkg="rosbag" type="record" name="rosbag_record"
+       args="record -o $(find ball_calibration)/bags/vision
+            /ball_1_pose_transformed
+            /ball_2_pose_transformed
+            /ball_3_pose_transformed
+            /ball_4_pose_transformed
+            /ball_5_pose_transformed
+            /ball_6_pose_transformed
+            /camera_1_detection/debug_img/compressed
+            /camera_2_detection/debug_img/compressed
+            /camera_3_detection/debug_img/compressed
+            /camera_4_detection/debug_img/compressed
+            /camera_5_detection/debug_img/compressed
+            /camera_6_detection/debug_img/compressed
+            "/>
+</launch>

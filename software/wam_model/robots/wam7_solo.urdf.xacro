@@ -1,0 +1,11 @@
+<robot name="wam"
+  xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- Includea all the WAM stuff -->
+  <xacro:include filename="$(find wam_model)/models/arm.urdf.xacro"/>
+
+  <!-- Root link is in the world frame-->
+  <link name="world"/>
+  <!-- 7-DOF Wam -->
+  <xacro:wam_7dof_solo prefix="wam" parent_link="world" xyz="0.0 0.0 0.7" rpy="0 0 ${PI}" />
+</robot>

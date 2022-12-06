@@ -1,0 +1,27 @@
+<library path="lib/libball_ekf_localization_nodelet">
+  <class name="BallLocalization/EkfNodelet"
+         type="BallLocalization::EkfNodelet"
+         base_class_type="nodelet::Nodelet">
+    <description>
+      ball_ekf_localization_node as nodelet
+    </description>
+  </class>
+</library>
+<library path="lib/libball_ukf_localization_nodelet">
+  <class name="BallLocalization/UkfNodelet"
+         type="BallLocalization::UkfNodelet"
+         base_class_type="nodelet::Nodelet">
+    <description>
+      ball_ukf_localization_node as nodelet
+    </description>
+  </class>
+</library>
+<library path="lib/libball_navsat_transform_nodelet">
+  <class name="BallLocalization/NavSatTransformNodelet"
+         type="BallLocalization::NavSatTransformNodelet"
+         base_class_type="nodelet::Nodelet">
+    <description>
+      ball_navsat_transform_node as nodelet
+    </description>
+  </class>
+</library>

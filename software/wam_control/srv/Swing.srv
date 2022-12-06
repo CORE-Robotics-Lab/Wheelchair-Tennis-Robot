@@ -1,0 +1,6 @@
+geometry_msgs/PointStamped ball_position   # position of ball 
+geometry_msgs/Vector3 swing_direction      # Optional: straight or cross-court direction (needed for some swings like linear)
+---
+bool success
+string error_msg
+geometry_msgs/Pose placement_pose

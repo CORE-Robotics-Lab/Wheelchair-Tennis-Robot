@@ -1,0 +1,14 @@
+<package>
+  <name>wam_model</name>
+  <version>0.0.0</version>
+  <description>CAD barrett files</description>
+
+  <maintainer email="dmartin1@gatech.edu">Daniel Martin</maintainer>
+
+  <license>MIT</license>
+  <url type="website">https://github.gatech.edu/MCG-Lab/Wheelchair-Tennis-Robot</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>xacro</run_depend>
+</package>

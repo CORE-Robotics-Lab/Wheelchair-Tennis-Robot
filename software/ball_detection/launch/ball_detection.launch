@@ -1,0 +1,5 @@
+<launch>
+    <node pkg="ball_detection" type="ball_detection" name="ball_detection" output="screen">
+        <rosparam command="load" file="$(find ball_detection)/config/settings.yaml" />
+    </node>
+</launch>

@@ -1,0 +1,10 @@
+<launch>
+
+    <node name="test_hit_ball" pkg="wtr_plan" type="test_hit_ball.py" >
+        <!-- type of swing [linear, circular, catapult] -->
+        <param name="swing_type" value="linear" />
+    </node>
+
+
+
+</launch>

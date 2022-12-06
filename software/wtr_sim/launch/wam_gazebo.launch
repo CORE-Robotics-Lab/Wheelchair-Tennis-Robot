@@ -1,0 +1,39 @@
+<launch>
+      <!-- NOT CURRENTLY FUNCTIONAL!!!!!!!!!!  -->
+
+      <param name="/use_sim_time" value="true" />
+
+      <!-- Run Gazebo -->
+      <node name="gazebo" pkg="gazebo_ros" type="gzserver" respawn="false" output="screen"
+            args="-e ode $(find wtr_sim)/worlds/tennis_court.world" required="true"/>
+      <node name="gazebo_gui" pkg="gazebo_ros" type="gzclient" respawn="false" output="screen" required="true"/>
+
+      <param name="robot_description" command="$(find xacro)/xacro '$(find wam_model)/robots/wam7.urdf.xacro'"/>
+      <!-- <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"/> -->
+
+      <!-- Controllers -->
+      <rosparam file="$(find wtr_sim)/config/transmission_control.yaml" command="load"/>
+      <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+            args="joint_state_controller joint_group_trajectory_controller"/>
+
+      <!-- Spawn Model -->
+      <node name="spawn_platform" pkg="gazebo_ros" type="spawn_model"
+      args="-param robot_description
+      -urdf -model wam7"/>
+
+      <!-- rviz Tennis court -->
+      <node pkg="map_server" type="map_server" name="map_server" required="false" output="screen"
+          args="$(find wtr_sim)/config/tennis_court_map.yaml">
+        <param name="frame_id" value="world"/>
+      </node>
+
+      <!-- Ball Control -->
+      <node name="spawn_platform_ball" pkg="gazebo_ros" type="spawn_model"
+      args="-file $(find wam_model)/models/tennis_ball.urdf
+      -urdf -model tennis_ball
+      -x 6 -y 3 -z 0.05"/>
+      <node pkg="wtr_sim" name="ball_sim" type="ball_sim.py" output="screen"/>
+      <node pkg="wtr_sim" name="wheelchair_sim" type="wheelchair_sim.py" output="screen"/>
+      <node pkg="wtr_sim" name="arm_sim" type="arm_sim.py" output="screen"/>
+
+</launch>

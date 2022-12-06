@@ -1,0 +1,27 @@
+<launch>
+    <!-- Machines -->
+    <machine name="jetson1" address="192.168.1.101" user="jetson-nano-1" password="1111"
+        env-loader="/home/jetson-nano-1/catkin_ws/src/Wheelchair-Tennis-Robot/env.sh" />
+    <machine name="jetson2" address="192.168.1.102" user="jetson-nano-2" password="1111"
+        env-loader="/home/jetson-nano-2/catkin_ws/src/Wheelchair-Tennis-Robot/env.sh" />
+    <!-- <machine name="jetson3" address="192.168.1.103" user="jetson-nano-3" password="1111"
+        env-loader="/home/jetson-nano-3/catkin_ws/src/Wheelchair-Tennis-Robot/env.sh" /> -->
+    <machine name="jetson4" address="192.168.1.104" user="jetson-nano-4" password="1111"
+        env-loader="/home/jetson-nano-4/catkin_ws/src/Wheelchair-Tennis-Robot/env.sh" />
+    <machine name="jetson5" address="192.168.1.107" user="jetson-nano-5" password="1111"
+        env-loader="/home/jetson-nano-5/catkin_ws/src/Wheelchair-Tennis-Robot/env.sh" />
+    <machine name="jetson6" address="192.168.1.106" user="jetson-nano-6" password="1111"
+        env-loader="/home/jetson-nano-6/catkin_ws/src/Wheelchair-Tennis-Robot/env.sh" />
+
+    <node name="rqt_gui" pkg="rqt_gui" type="rqt_gui" output="log"
+         args="--perspective-file $(find ball_calibration)/rviz/ball_detection.perspective"/>
+
+    <!-- Nodes -->
+    <rosparam command="load" file="$(find ball_calibration)/config/jetson_ball_detection.yaml" />
+    <node machine="jetson1" name="camera_1_detection" pkg="ball_detection" type="ball_detection_gpu" output="screen" />
+    <node machine="jetson2" name="camera_2_detection" pkg="ball_detection" type="ball_detection_gpu" output="screen" />
+    <!-- <node machine="jetson3" name="camera_3_detection" pkg="ball_detection" type="ball_detection_gpu" output="screen" /> -->
+    <node machine="jetson4" name="camera_4_detection" pkg="ball_detection" type="ball_detection_gpu" output="screen" />
+    <node machine="jetson5" name="camera_5_detection" pkg="ball_detection" type="ball_detection_gpu" output="screen" />
+    <node machine="jetson6" name="camera_6_detection" pkg="ball_detection" type="ball_detection_gpu" output="screen" />
+</launch>

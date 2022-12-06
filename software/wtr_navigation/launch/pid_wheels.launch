@@ -1,0 +1,20 @@
+<launch>
+    <node name="controller" pkg="pid" type="controller" ns="wheels_pid" output="screen" >
+      <param name="node_name" value="wheels_pid" />
+      <param name="Kp" value="5.0" />
+      <param name="Ki" value="0.0" />
+      <param name="Kd" value="0.2" />
+      <param name="upper_limit" value="10" />
+      <param name="lower_limit" value="-10" />
+      <param name="windup_limit" value="10" />
+      <!-- <param name="cutoff_frequency" value="50.0" /> -->
+      <!-- <param name="topic_from_controller" value="wheels_speed" /> -->
+      <!-- <param name="topic_from_plant" value="wheelchair_current_position" /> -->
+      <param name="max_loop_frequency" value="200.0" />
+      <param name="min_loop_frequency" value="100.0" />
+      <param name="pid_enable_topic" value="false" />
+      <remap from="setpoint" to="/wheelchair_desired_position" />
+      <remap from="state" to="/wheelchair_current_position" />
+      <remap from="control_effort" to="/wheels_speed" />
+     </node>
+</launch>

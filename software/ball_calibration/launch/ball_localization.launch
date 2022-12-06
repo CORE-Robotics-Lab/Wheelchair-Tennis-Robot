@@ -1,0 +1,24 @@
+<launch>
+      <!-- EKF Localization -->
+      <node pkg="ball_localization" type="ball_ekf_localization_node" name="ball_ekf_localization" output="screen" ns="ball">
+            <rosparam command="load" file="$(find ball_calibration)/config/ball_ekf_localization.yaml"/>
+            <remap from="/ball/odometry/ball_filtered" to="/ball_odometry"/>
+      </node>
+
+      <!-- Ball Urdf -->
+      <param name="ball_description" command="cat $(find ball_calibration)/models/tennis_ball.urdf"/>
+      <node name="ball_description_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" ns="ball">
+            <remap from="robot_description" to="ball_description" />
+      </node>
+
+      <!-- Trajectory Path History -->
+      <node pkg="hector_trajectory_server" type="hector_trajectory_server" name="hector_trajectory_server" output="screen">
+            <param name="target_frame_name" value="world" />
+            <param name="source_frame_name" value="ball" />
+            <param name="trajectory_update_rate" value="100" />
+            <param name="trajectory_publish_rate" value="20" />
+      </node>
+
+      <!-- Transform Ball -->
+      <node pkg="ball_calibration" name="ball_transfromer" type="transform_measurements.py" output="screen"/>
+</launch>

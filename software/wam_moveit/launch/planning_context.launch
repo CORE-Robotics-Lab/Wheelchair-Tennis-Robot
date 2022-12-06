@@ -1,0 +1,37 @@
+<launch>
+  <!-- By default we do not overwrite the URDF. Change the following to true to change the default behavior -->
+  <arg name="load_robot_description" default="false"/>
+
+  <!-- The name of the parameter under which the URDF is loaded -->
+  <arg name="robot_description" default="robot_description"/>
+
+  <arg name="urdf_prefix" default="wam"/>
+  <arg name="ee_empty" default="false"/>
+  <arg name="ee_hand" default="false"/>
+  <arg name="ee_ball" default="false"/>
+
+  <arg name="DOF" default="7"/>
+
+  <!-- Load universal robot description format (URDF) -->
+  <param if="$(arg load_robot_description)" name="$(arg robot_description)" command="$(find xacro)/xacro '$(find wtr_model)/robots/wam7.urdf.xacro'"/>
+
+  <!-- The semantic description that corresponds to the URDF -->
+  <param name="$(arg robot_description)_semantic" textfile="$(find wam_moveit)/config/wam_$(arg DOF)DOF.srdf" />
+  <!-- <param name="$(arg robot_description)_semantic"
+    command="$(find xacro)/xacro '$(find wam_moveit)/config/wam7.srdf.xacro' prefix:=$(arg urdf_prefix) hand:=$(arg ee_hand) ball:=$(arg ee_ball) empty:=$(arg ee_empty)" /> -->
+
+  <!-- Load updated joint limits (override information from URDF) -->
+  <group ns="$(arg robot_description)_planning">
+    <rosparam command="load" file="$(find wam_moveit)/config/joint_limits.yaml"/>
+  </group>
+
+  <group ns="$(arg robot_description)_planning">
+    <rosparam command="load" file="$(find wam_moveit)/config/cartesian_limits.yaml"/>
+  </group>
+
+  <!-- Load default settings for kinematics; these settings are overridden by settings in a node's namespace -->
+  <group ns="$(arg robot_description)_kinematics">
+    <rosparam command="load" file="$(find wam_moveit)/config/kinematics.yaml"/>
+  </group>
+
+</launch>

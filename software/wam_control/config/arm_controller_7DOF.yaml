@@ -1,0 +1,101 @@
+joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: 100
+
+
+joint_group_trajectory_controller:
+  type: "position_controllers/JointTrajectoryController"
+  joints:
+    - wam/base_yaw_joint
+    - wam/shoulder_pitch_joint
+    - wam/shoulder_yaw_joint
+    - wam/elbow_pitch_joint
+    - wam/wrist_yaw_joint
+    - wam/wrist_pitch_joint
+    - wam/palm_yaw_joint
+  constraints:
+    goal_time: 1
+    stopped_velocity_tolerance: 1
+    wam/base_yaw_joint:       {trajectory: 100, goal: 1000}
+    wam/shoulder_pitch_joint: {trajectory: 100, goal: 1000}
+    wam/shoulder_yaw_joint:   {trajectory: 100, goal: 1000}
+    wam/elbow_pitch_joint:    {trajectory: 100, goal: 1000}
+    wam/wrist_yaw_joint:      {trajectory: 100, goal: 1000}
+    wam/wrist_pitch_joint:    {trajectory: 100, goal: 1000}
+    wam/palm_yaw_joint:       {trajectory: 100, goal: 1000}
+
+
+joint_group_trajectory_velocity_controller:
+  type: "velocity_controllers/JointTrajectoryController"
+  joints:
+    - wam/base_yaw_joint
+    - wam/shoulder_pitch_joint
+    - wam/shoulder_yaw_joint
+    - wam/elbow_pitch_joint
+    - wam/wrist_yaw_joint
+    - wam/wrist_pitch_joint
+    - wam/palm_yaw_joint
+  constraints:
+    goal_time: 1
+    stopped_velocity_tolerance: 1
+    wam/base_yaw_joint:       {trajectory: 100, goal: 1000}
+    wam/shoulder_pitch_joint: {trajectory: 100, goal: 1000}
+    wam/shoulder_yaw_joint:   {trajectory: 100, goal: 1000}
+    wam/elbow_pitch_joint:    {trajectory: 100, goal: 1000}
+    wam/wrist_yaw_joint:      {trajectory: 100, goal: 1000}
+    wam/wrist_pitch_joint:    {trajectory: 100, goal: 1000}
+    wam/palm_yaw_joint:       {trajectory: 100, goal: 1000}
+  gains:
+    wam/base_yaw_joint: {p: 1}
+    wam/shoulder_pitch_joint: {p: 1}
+    wam/shoulder_yaw_joint: {p: 1}
+    wam/elbow_pitch_joint: {p: 1}
+    wam/wrist_yaw_joint: {p: 1}
+    wam/wrist_pitch_joint: {p: 1}
+    wam/palm_yaw_joint: {p: 1}
+
+
+joint_position_controller:
+  type: "position_controllers/JointGroupPositionController"
+  joints:
+    - wam/base_yaw_joint
+    - wam/shoulder_pitch_joint
+    - wam/shoulder_yaw_joint
+    - wam/elbow_pitch_joint
+    - wam/wrist_yaw_joint
+    - wam/wrist_pitch_joint
+    - wam/palm_yaw_joint
+
+
+joint_velocity_controller:
+  type: "velocity_controllers/JointGroupVelocityController"
+  joints:
+    - wam/base_yaw_joint
+    - wam/shoulder_pitch_joint
+    - wam/shoulder_yaw_joint
+    - wam/elbow_pitch_joint
+    - wam/wrist_yaw_joint
+    - wam/wrist_pitch_joint
+    - wam/palm_yaw_joint
+  gains:
+    wam/base_yaw_joint: {p: 1}
+    wam/shoulder_pitch_joint: {p: 1}
+    wam/shoulder_yaw_joint: {p: 1}
+    wam/elbow_pitch_joint: {p: 1}
+    wam/wrist_yaw_joint: {p: 1}
+    wam/wrist_pitch_joint: {p: 1}
+    wam/palm_yaw_joint: {p: 1}
+
+
+# The true CHAD way to move around
+joint_position_move_controller:
+  type: "position_controllers/JointGroupPositionController"
+  joints:
+    - wam/base_yaw_joint
+    - wam/shoulder_pitch_joint
+    - wam/shoulder_yaw_joint
+    - wam/elbow_pitch_joint
+    - wam/wrist_yaw_joint
+    - wam/wrist_pitch_joint
+    - wam/palm_yaw_joint
+

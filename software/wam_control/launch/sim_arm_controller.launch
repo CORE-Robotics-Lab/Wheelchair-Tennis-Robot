@@ -1,0 +1,13 @@
+<launch>
+    <!-- joint_num: 5 | 7 -->
+    <arg name="joint_num" default="7" />
+
+     <!-- Arm Controller -->
+    <rosparam file="$(find wam_control)/config/arm_controller_$(arg joint_num)DOF.yaml" command="load"/>
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" output="screen"
+        args="joint_state_controller joint_group_trajectory_controller" /> <!--joint_group_trajectory_controller joint_position_controller-->
+
+    <!-- Sim Arm Hardware Interface -->
+    <node pkg="wam_control" type="arm_hw_interface_sim" name="arm_hw_interface_sim" output="screen" />
+
+</launch>

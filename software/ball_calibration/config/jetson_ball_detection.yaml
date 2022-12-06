@@ -1,0 +1,208 @@
+# Refer to ball_detection/config/settings.yaml for param descriptions
+camera_1_detection:
+  camera_id: "1"
+
+  low_H: 10
+  low_S: 170
+  low_V: 170
+  high_H: 25
+  high_S: 255
+  high_V: 255
+
+  z_k2: 0.002
+  z_k1: 0.001
+  z_k0: 0.05
+
+  xy_k2: 0.000296
+  xy_k1: 0.000444
+  xy_k0: 0.02
+
+  lockin_wait: 0.1
+  lockin_max_dist: 1 # meters
+
+  exposure: 15
+  gain: 70
+
+  largest_moving_center: true
+  merged_percent: 0.08
+
+  debug_minimal: true #false
+  debug_resize: 0.4
+  debug_publish_period: 0.1
+
+
+  print_diagnostics: false
+
+camera_2_detection:
+  camera_id: "2"
+
+  low_H: 10
+  low_S: 170
+  low_V: 170
+  high_H: 25
+  high_S: 255
+  high_V: 255
+
+  z_k2: 0.002
+  z_k1: 0.001
+  z_k0: 0.05
+
+  xy_k2: 0.000296
+  xy_k1: 0.000444
+  xy_k0: 0.02
+
+  lockin_wait: 0.1
+  lockin_max_dist: 1 # meters
+
+  exposure: 15
+  gain: 70
+
+  largest_moving_center: true
+  merged_percent: 0.08
+
+  debug_minimal: true #false
+  debug_resize: 0.4
+  debug_publish_period: 0.1
+
+
+  print_diagnostics: false
+
+camera_3_detection:
+  camera_id: "3"
+
+  low_H: 10
+  low_S: 170
+  low_V: 170
+  high_H: 25
+  high_S: 255
+  high_V: 255
+
+  z_k2: 0.002
+  z_k1: 0.001
+  z_k0: 0.05
+
+  xy_k2: 0.000296
+  xy_k1: 0.000444
+  xy_k0: 0.02
+
+  lockin_wait: 0.1
+  lockin_max_dist: 1 # meters
+
+  exposure: 15
+  gain: 70
+
+  largest_moving_center: true
+  merged_percent: 0.08
+
+  debug_minimal: true #false
+  debug_resize: 0.4
+  debug_publish_period: 0.1
+
+
+  print_diagnostics: false
+
+
+camera_4_detection:
+  camera_id: "4"
+
+  low_H: 10
+  low_S: 170
+  low_V: 170
+  high_H: 25
+  high_S: 255
+  high_V: 255
+
+  z_k2: 0.002
+  z_k1: 0.001
+  z_k0: 0.05
+
+  xy_k2: 0.000296
+  xy_k1: 0.000444
+  xy_k0: 0.02
+
+  lockin_wait: 0.1
+  lockin_max_dist: 1 # meters
+
+  exposure: 15
+  gain: 70
+
+  largest_moving_center: true
+  merged_percent: 0.08
+
+  debug_minimal: true #false
+  debug_resize: 0.4
+  debug_publish_period: 0.1
+
+
+  print_diagnostics: false
+
+
+camera_5_detection:
+  camera_id: "5"
+
+  low_H: 10
+  low_S: 170
+  low_V: 170
+  high_H: 25
+  high_S: 255
+  high_V: 255
+
+  z_k2: 0.002
+  z_k1: 0.001
+  z_k0: 0.05
+
+  xy_k2: 0.000296
+  xy_k1: 0.000444
+  xy_k0: 0.02
+
+  lockin_wait: 0.1
+  lockin_max_dist: 1 # meters
+
+  exposure: 15
+  gain: 70
+
+  largest_moving_center: true
+  merged_percent: 0.08
+
+  debug_minimal: true #false
+  debug_resize: 0.4
+  debug_publish_period: 0.1
+
+
+  print_diagnostics: false
+
+camera_6_detection:
+  camera_id: "6"
+
+  low_H: 10
+  low_S: 170
+  low_V: 170
+  high_H: 25
+  high_S: 255
+  high_V: 255
+
+  z_k2: 0.002
+  z_k1: 0.001
+  z_k0: 0.05
+
+  xy_k2: 0.000296
+  xy_k1: 0.000444
+  xy_k0: 0.02
+
+  lockin_wait: 0.1
+  lockin_max_dist: 1 # meters
+
+  exposure: 15
+  gain: 70
+
+  largest_moving_center: true
+  merged_percent: 0.08
+  # largest_moving_center: true
+  # merged_percent: 0.03
+
+  debug_minimal: true #false
+  debug_resize: 0.4
+  debug_publish_period: 0.1
+
+
+  print_diagnostics: false

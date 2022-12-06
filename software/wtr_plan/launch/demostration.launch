@@ -1,0 +1,10 @@
+<launch>
+ <node pkg="rosbag" type="record" name="rosbag_record"
+       args="record -o $(find wtr_plan)/demonstrations/swing
+            /ball_1_pose
+            /ball_2_pose
+            /ball/event
+
+            /wam1/joint_states
+            "/>
+</launch>

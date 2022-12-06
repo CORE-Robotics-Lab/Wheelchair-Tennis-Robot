@@ -1,0 +1,80 @@
+# joint_limits.yaml allows the dynamics properties specified in the URDF to be overwritten or augmented as needed
+# Specific joint properties can be changed with the keys [max_position, min_position, max_velocity, max_acceleration]
+# Joint limits can be turned off with [has_velocity_limits, has_acceleration_limits]
+
+# For beginners, we downscale velocity and acceleration limits.
+# You can always specify higher scaling factors (<= 1.0) in your motion requests.  # Increase the values below to 1.0 to always move at maximum speed.
+
+default_velocity_scaling_factor: 0.5
+default_acceleration_scaling_factor: 0.5
+
+joint_limits:
+  wam/base_yaw_joint:
+    min_position: -2.6
+    max_position: 2.6
+    has_velocity_limits: true
+    max_velocity: 3.5
+    has_acceleration_limits: true
+    max_acceleration: 6.82
+    has_deceleration_limits: true
+    max_deceleration: -6.82
+
+  wam/shoulder_pitch_joint:
+    min_position: -1.98
+    max_position: 1.98
+    has_velocity_limits: true
+    max_velocity: 6.3
+    has_acceleration_limits: true
+    max_acceleration: 11.5
+    has_deceleration_limits: true
+    max_deceleration: -11.5
+
+  wam/shoulder_yaw_joint:
+    min_position: -2.8
+    max_position: 2.8
+    has_velocity_limits: true
+    max_velocity: 10
+    has_acceleration_limits: true
+    max_acceleration: 17
+    has_deceleration_limits: true
+    max_deceleration: -17
+
+  wam/elbow_pitch_joint:
+    min_position: -0.9
+    max_position: 3.1
+    has_velocity_limits: true
+    max_velocity: 10
+    has_acceleration_limits: true
+    max_acceleration: 21.5
+    has_deceleration_limits: true
+    max_deceleration: -21.5
+
+  wam/wrist_yaw_joint:
+    min_position: -4.65
+    max_position: 1.35
+    has_velocity_limits: true
+    max_velocity: 24
+    has_acceleration_limits: true
+    max_acceleration: 84
+    has_deceleration_limits: true
+    max_deceleration: -84
+
+  wam/wrist_pitch_joint:
+    min_position: -1.57
+    max_position: 1.57
+    has_velocity_limits: true
+    max_velocity: 19
+    has_acceleration_limits: true
+    max_acceleration: 110
+    has_deceleration_limits: true
+    max_deceleration: -110
+
+  wam/palm_yaw_joint:
+    min_position: -2.95
+    max_position: 2.95
+    has_velocity_limits: true
+    max_velocity: 27
+    has_acceleration_limits: true
+    max_acceleration: 100
+    has_deceleration_limits: true
+    max_deceleration: -100

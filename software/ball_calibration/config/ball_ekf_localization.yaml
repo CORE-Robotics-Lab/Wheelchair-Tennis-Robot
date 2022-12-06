@@ -1,0 +1,142 @@
+# Refer to robot_localization for details about parameters
+frequency: 100
+sensor_timeout: 1
+two_d_mode: false
+
+map_frame: map
+odom_frame: world
+world_frame: world
+base_link_frame: ball
+
+reset_on_time_jump: true
+
+pose0: /ball_1_posegggg
+pose0_config: [true,  true,  true,
+               true, true, true,
+               false, false, false,
+               false, false, false,
+               false, false, false]
+# pose0_config: [true,  true,  true,
+#                false, false, false,
+#                false, false, false,
+#                false, false, false,
+#                false, false, false]
+pose0_queue_size: 100
+pose0_nodelay: false
+
+pose1: /ball_2_pose
+pose1_config: [true,  true,  true,
+               false, false, false,
+               false, false, false,
+               false, false, false,
+               false, false, false]
+pose1_queue_size: 100
+pose1_nodelay: false
+
+pose2: /ball_3_posehhhhhhhh
+pose2_config: [true,  true,  true,
+               false, false, false,
+               false, false, false,
+               false, false, false,
+               false, false, false]
+pose2_queue_size: 100
+pose2_nodelay: false
+
+pose3: /ball_4_pose
+pose3_config: [true,  true,  true,
+               false, false, false,
+               false, false, false,
+               false, false, false,
+               false, false, false]
+pose3_queue_size: 100
+pose3_nodelay: false
+
+pose4: /ball_5_pose
+pose4_config: [true,  true,  true,
+               false, false, false,
+               false, false, false,
+               false, false, false,
+               false, false, false]
+pose4_queue_size: 100
+pose4_nodelay: false
+
+pose5: /ball_6_pose
+pose5_config: [true,  true,  true,
+               true, true, true,
+               false, false, false,
+               false, false, false,
+               false, false, false]
+pose5_queue_size: 100
+pose5_nodelay: false
+
+publish_tf: true
+
+smooth_lagged_data: true
+history_length: 0.5
+
+# Use ballistic Dynamics?
+is_ball: true
+
+# Use adaptive EKF?
+aekf: false
+aekf_measurement_alpha: 0.2 #1.0 #0.8
+aekf_noise_alpha: 0.75 #1.0 #0.75
+
+
+# # Tennis Courts no spin
+# coeff_restitution_x:  0.49 #0.55 #0.6 #0.5 #0.45  #0.60
+# coeff_restitution_y:  0.54  #0.54
+# coeff_restitution_z:  0.71 #0.7 #0.71  #0.71
+# coeff_drag: 0.55 #0.55
+# coeff_lift: 0
+
+# # Tennis Courts top spin
+# coeff_restitution_x:  0.60  #0.6
+# coeff_restitution_y:  0.54  #0.54
+# coeff_restitution_z:  0.73  #0.71
+# coeff_drag: 0.55 #0.55
+# coeff_lift: 0
+
+# # Tennis Courts back spin
+# coeff_restitution_x:  0.57  #0.6
+# coeff_restitution_y:  0.54  #0.54
+# coeff_restitution_z:  0.69  #0.71
+# coeff_drag: 0.55 #0.55
+# coeff_lift: 0
+
+# Outdoor Tennis Courts
+# coeff_restitution_x: 0.50
+# coeff_restitution_y: 0.54
+# coeff_restitution_z: 0.71
+# coeff_drag: 0.55
+# coeff_lift: 0
+
+# Lab Values
+# Bounce and drag cofficents 
+coeff_restitution_x: 0.37 #0.41 #0.6
+coeff_restitution_y: 0.60 #0.64
+coeff_restitution_z: 0.70 #0.7 #0.7
+coeff_drag: 0.55
+coeff_lift: 0
+
+# Simulation
+# coeff_restitution_x: 1.0
+# coeff_restitution_y: 1.0
+# coeff_restitution_z: 0.75
+# coeff_drag: 0
+# coeff_lift: 0
+
+# Covariance confidence (used by rollout/confidence color only)
+confid_max_vel_cov: 2
+
+# Rollout Length
+rollout_time: 3
+
+# If don't see ball after some time, reset EKF
+duration_until_reset: 1
+
+# Should we be reset EKF on racket ball hits (aka large changes in x directions)
+swing_reset: false #true 
+
+# Hard-code velocity after launch
+allow_force_reset: true #false

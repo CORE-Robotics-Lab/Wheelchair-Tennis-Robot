@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <model name="TennisCourt">
+    <static>true</static>
+    <link name="link">
+      <collision name="collision">
+        <geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>40 55</size>
+          </plane>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>100</mu>
+              <mu2>50</mu2>
+            </ode>
+          </friction>
+             <bounce restitution_coefficient="1.0" threshold="0.01"/>
+        </surface>
+      </collision>
+      <visual name="visual">
+        <cast_shadows>true</cast_shadows>
+        <geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>28 14</size>
+          </plane>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://../materials/tennisCourt.material</uri>
+            <name>Gazebo/tennisCourt</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>

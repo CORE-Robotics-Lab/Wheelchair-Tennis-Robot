@@ -1,0 +1,10 @@
+<launch>
+      <arg name="settings_file" default="tennis" />
+
+      <!-- rviz -->
+      <node name="$(anon rviz)"  pkg="rviz" type="rviz" respawn="false" output="screen"
+            args="-d $(find wtr_plan)/rviz/$(arg settings_file).rviz" >
+                  <rosparam command="load" file="$(find wam_moveit)/config/kinematics.yaml"/>
+                  <remap from="/goal" to="/move_base_simple/goal"/>
+      </node>
+</launch>

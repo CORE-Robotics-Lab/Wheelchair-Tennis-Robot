@@ -1,0 +1,42 @@
+camera_1:
+  parent_tf: bundle_4
+  xyz: "6.33202 0.95225 5.75973"
+  rpy: "1.61826 0.90851 -3.09576"
+  xyz_std: "0.00215 0.004 0.0033"
+  rpy_std: "0.00095 0.00036 0.00086"
+  samples: 15
+camera_2:
+  parent_tf: bundle_4
+  xyz: "0 0 0"
+  rpy: "0 0 0"
+  xyz_std: "0 0 0"
+  rpy_std: "0 0 0"
+  samples: 0
+camera_3:
+  parent_tf: bundle_4
+  xyz: "5.42596 1.13 18.09029"
+  rpy: "1.68242 0.74379 -2.997"
+  xyz_std: "2.87917 0.63701 0.06918"
+  rpy_std: "0.03815 0.15613 0.03445"
+  samples: 16
+camera_4:
+  parent_tf: bundle_4
+  xyz: "-4.31663 0.64015 18.43702"
+  rpy: "-1.73573 0.87161 -0.21436"
+  xyz_std: "0.60533 0.75753 0.1601"
+  rpy_std: "0.06123 0.03475 0.04818"
+  samples: 14
+camera_5:
+  parent_tf: bundle_4
+  xyz: "0 0 0"
+  rpy: "0 0 0"
+  xyz_std: "0 0 0"
+  rpy_std: "0 0 0"
+  samples: 0
+camera_6:
+  parent_tf: bundle_4
+  xyz: "-5.34482 0.94589 5.7221"
+  rpy: "-1.73769 0.91761 -0.19714"
+  xyz_std: "0.00189 0.00377 0.00286"
+  rpy_std: "0.00086 0.00042 0.00082"
+  samples: 15

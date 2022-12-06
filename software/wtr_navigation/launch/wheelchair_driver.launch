@@ -1,0 +1,22 @@
+<launch>
+    <!-- Run the teensy node -->
+    <node pkg="wtr_navigation" type="serial_relay" name="serial_relay" output="screen">
+            <param name="serial_device" value="/dev/ttyACM0"/>
+            <param name="baud_rate" value="500000"/>
+    </node>
+
+    <node pkg="wtr_navigation" type="odrive_tool.py" name="odrive_tool" output="screen"/>
+
+    <!-- Run zed camera (using it's imu). Comment it out if using yost imu -->
+    <!-- <include file="$(find wtr_navigation)/launch/zed_wheelchair.launch"/> -->
+
+    <!-- Run the velodyne lidar -->
+    <!-- <include file="$(find wtr_navigation)/launch/velodyne.launch"/> -->
+    
+    <!-- Run the pointcloud to 2d laser scanner -->
+    <!-- <include file="$(find sick_scan)/launch/pointcloud_to_laser_scan.launch"/> -->
+    
+    <!-- Run the amcl node -->
+    <!-- <include file="$(find wtr_navigation)/launch/amcl_wc_lab.launch"/> -->
+
+</launch>

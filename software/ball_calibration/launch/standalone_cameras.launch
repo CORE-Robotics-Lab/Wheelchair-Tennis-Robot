@@ -1,0 +1,28 @@
+<launch>
+
+      <!-- Camera 1 -->
+      <include file="$(find ball_calibration)/launch/zed_urdf/zed_urdf.launch">
+            <arg name="camera_name"           value="camera_1" />
+            <arg name="cam_pos_x"             value="6.0" />
+            <arg name="cam_pos_y"             value="7.0" />
+            <arg name="cam_pos_z"             value="1.0" />
+            <arg name="cam_roll"              value="0.0" />
+            <arg name="cam_pitch"             value="0.0" />
+            <arg name="cam_yaw"               value="-1.57" />
+      </include>
+
+      <!-- Camera 2 -->
+      <include file="$(find ball_calibration)/launch/zed_urdf/zed_urdf.launch">
+            <arg name="camera_name"           value="camera_2" />
+            <arg name="cam_pos_x"             value="6.0" />
+            <arg name="cam_pos_y"             value="-7.0" />
+            <arg name="cam_pos_z"             value="1.0" />
+            <arg name="cam_roll"              value="0.0" />
+            <arg name="cam_pitch"             value="0.0" />
+            <arg name="cam_yaw"               value="1.57" />
+      </include>
+
+      <!-- Ball Localization -->
+      <include file="$(find ball_calibration)/launch/ball_localization.launch"/>
+
+</launch>

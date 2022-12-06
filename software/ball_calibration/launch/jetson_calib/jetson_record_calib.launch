@@ -1,0 +1,31 @@
+<launch>
+    <!-- Type: court_our | court_opp | other -->
+    <arg name="type" default="other" />
+
+    <node pkg="ball_calibration" name="zed_calibration" type="zed_calibration.py" output="screen">
+
+        <!-- Mapping to camera to most clearly visible bundle -->
+        <!-- DO NOT EDIT COURT BUNDLES -->
+        <param name="camera_1"  value="bundle_2"     if="$(eval arg('type') == 'court_our')" />
+        <param name="camera_2"  value="-1"     if="$(eval arg('type') == 'court_our')" />
+        <param name="camera_3"  value="-1"           if="$(eval arg('type') == 'court_our')" />
+        <param name="camera_4"  value="bundle_2"     if="$(eval arg('type') == 'court_our')" />
+        <param name="camera_5"  value="bundle_2"           if="$(eval arg('type') == 'court_our')" />
+        <param name="camera_6"  value="bundle_4"           if="$(eval arg('type') == 'court_our')" />
+
+        <param name="camera_1"  value="-1"           if="$(eval arg('type') == 'court_opp')" />
+        <param name="camera_2"  value="opp_bundle_1"           if="$(eval arg('type') == 'court_opp')" />
+        <param name="camera_3"  value="-1"           if="$(eval arg('type') == 'court_opp')" />
+        <param name="camera_4"  value="-1"           if="$(eval arg('type') == 'court_opp')" />
+        <param name="camera_5"  value="-1" if="$(eval arg('type') == 'court_opp')" />
+        <param name="camera_6"  value="-1" if="$(eval arg('type') == 'court_opp')" />
+
+        <!-- You can edit these if in lab -->
+        <param name="camera_1"  value="bundle_1"     if="$(eval arg('type') == 'other')" />
+        <param name="camera_2"  value="bundle_1"     if="$(eval arg('type') == 'other')" />
+        <param name="camera_3"  value="-1"     if="$(eval arg('type') == 'other')" />
+        <param name="camera_4"  value="bundle_1"           if="$(eval arg('type') == 'other')" />
+        <param name="camera_5"  value="bundle_4"     if="$(eval arg('type') == 'other')" />
+        <param name="camera_6"  value="bundle_4"           if="$(eval arg('type') == 'other')" />
+    </node>
+</launch>

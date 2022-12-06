@@ -1,0 +1,65 @@
+<launch>
+      <!-- Arguements -->
+      <arg name="sim_arm_controller" default="true" />
+      <arg name="sim_drive_controller" default="false" />
+      <arg name="sim_ball" default="false" />
+
+      <!-- Param -->
+      <param name="/use_sim_time" value="false" />
+      <param name="robot_description" command="$(find xacro)/xacro '$(find wam_model)/robots/wam7.urdf.xacro'"/>
+
+      <!-- Rviz -->
+      <include file="$(find wtr_plan)/launch/rviz.launch">
+        <arg name="settings_file" value="lab_drive" />
+      </include>
+
+      <!-- Camera -->
+      <include file="$(find ball_calibration)/launch/box_cameras.launch">
+        <arg name="at_courts" value="true" />
+      </include>
+
+      <!-- Ball -->
+      <node pkg="wtr_sim" name="ball_sim" type="ball_sim.py" output="screen" if="$(arg sim_ball)"/>
+
+      <!-- Arm -->
+      <include file="$(find wam_control)/launch/sim_arm_controller.launch" if="$(arg sim_arm_controller)"/>
+      <include file="$(find wam_moveit)/launch/moveit_demo.launch"/>
+
+      <!-- Run the sensors on wheelchair: teensy, wheel encoders, lidar and zed imu data -->
+      <!-- <include file="$(find wtr_navigation)/launch/wheelchair_driver.launch" unless="$(arg sim_drive_controller)"/> -->
+
+      <!-- Navigation -->
+      <include file="$(find wtr_navigation)/launch/navigation.launch">
+        <arg name="sim_drive_controller" value="$(arg sim_drive_controller)" />
+      </include>
+
+      <node pkg="tf2_ros" type="static_transform_publisher" name="tf_static_world_to_maphhhhh"
+            args="0 0 0 0 0 0 world map"/>
+
+      <node pkg="tf2_ros" type="static_transform_publisher" name="tf_static_world_to_net"
+            args="0 0 0 0 0 0 static_link world"/>
+
+      <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="tf_static_world_to_map"
+      args="5.0 -1.2 0 1.5701 0 0 /world /base_footprint"/> -->
+
+
+      <!-- Planning -->
+      <!-- rviz's tennis court -->
+      <node pkg="map_server" type="map_server" name="map_server" ns="tennis_court_visual" required="false" output="screen"
+         args="$(find wtr_navigation)/config/map/tennis_map.yaml">
+          <param name="frame_id" value="world"/>
+      </node>
+      <!-- <node pkg="map_server" type="map_server" name="map_server" required="false" output="screen"
+         args="$(find wtr_navigation)/config/map/courts_map_apr_6.yaml">
+          <param name="frame_id" value="world"/>
+      </node> -->
+      <!-- <node pkg="map_server" type="map_server" name="map_server" required="false" output="screen"
+         args="$(find wtr_navigation)/config/map/velodyne_lab_2.yaml">
+          <param name="frame_id" value="world"/>
+      </node> -->
+      <!-- <node pkg="octomap_server" type="octomap_server_node" name="octomap_server" required="false" output="screen"
+         args="/home/core-robotics/lidar_maps/lab_octomap_mar23.bt">
+          <param name="frame_id" value="world"/>
+      </node> -->
+
+</launch>

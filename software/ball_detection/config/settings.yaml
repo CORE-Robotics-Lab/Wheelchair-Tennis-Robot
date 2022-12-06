@@ -1,0 +1,54 @@
+# Set /camera_<ID>_pose from /camera_<ID>_center_camera_optical
+camera_id: '1'
+
+# Brightness of image
+## Keep exposure ~15 to reduce motion blur
+## Just increase gain to make image brighter
+exposure: 15
+gain: 75
+
+# Optimization: Rescale of original image to reduced size for background subtraction
+background_resize: 0.4
+
+# Covariance Cloud 
+# cov_z = z_k2 * depth + z_k1 * depth + z_k0 
+# cov_x = cov_y = xy_k2 * depth + xy_k1 * depth + xy_k0 
+z_k2: 0.00104
+z_k1: 0.000444
+z_k0: 0.01
+xy_k2: 0.000296
+xy_k1: 0.00156
+xy_k0: 0.01
+
+# HSV values to color threshold
+high_H: 35
+high_S: 255
+high_V: 255
+low_H: 10
+low_S: 170
+low_V: 170
+
+# If you want to simply guess the candidate position on previous ball 
+# position if no orange pixels are in frame (Any -1 is disable) 
+guess_max_area_diff: 1.5
+guess_max_square_diff: 2
+guess_max_dist_diff: -1
+
+# Reduces ball's gaint jumps based on limiting publishing position if 
+# new position is more than `lockin_max_dist` away in less than `lockin_wait`
+lockin_wait: 0.2
+lockin_max_dist: 2 # meters
+
+# Do you want the center of the moving area or orange area? (largest_moving_center)
+# Anti-merge: If you are just using `largest_moving_center`=true if the orange area 
+# is less than `merged_percent` of the moving area then just use the orange area
+largest_moving_center: true
+merged_percent: 0.03
+
+# Type of debug image
+debug_minimal: false
+debug_resize: 0.4
+debug_publish_period: 0.1
+
+# Do you want to print diagnostics?
+print_diagnostics: true

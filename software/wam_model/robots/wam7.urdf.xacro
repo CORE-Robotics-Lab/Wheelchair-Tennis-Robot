@@ -1,0 +1,29 @@
+<robot name="wam"
+  xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- Includea all the WAM stuff -->
+  <xacro:include filename="$(find wam_model)/models/arm.urdf.xacro"/>
+
+  <!-- Root link is in the world frame-->
+  <!-- <link name="static_link"/> -->
+  <link name="base_link"/>
+  <link name="base_footprint"/>
+
+  <!-- <joint name="fixed_world_joint" type="floating">
+    <parent link="static_link"/>
+    <child link="base_footprint"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint> -->
+
+  <joint name="base_link_joint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+    <origin xyz="0 0 0.49" rpy="0 0 0"/>
+  </joint>
+
+  <!-- 7-DOF Wam -->
+  <xacro:wam_7dof prefix="wam" parent_link="base_link" xyz=".0793752 0.0 0.001" rpy="0 0 ${PI}" />
+
+  <!-- <xacro:tennis_net parent_link="static_link" /> -->
+
+</robot>

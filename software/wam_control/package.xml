@@ -1,0 +1,61 @@
+<package>
+  <name>wam_control</name>
+  <version>0.0.0</version>
+  <description>Tennis files</description>
+
+  <maintainer email="dmartin1@gatech.edu">Daniel Martin</maintainer>
+
+  <license>MIT</license>
+
+  <url type="website">https://github.gatech.edu/MCG-Lab/Wheelchair-Tennis-Robot</url>
+
+  <run_depend>moveit_ros_move_group</run_depend>
+  <run_depend>moveit_planners_ompl</run_depend>
+  <run_depend>moveit_ros_visualization</run_depend>
+  <run_depend>joint_state_publisher</run_depend>
+  <run_depend>robot_state_publisher</run_depend>
+  <run_depend>xacro</run_depend>
+  <build_depend>wam_model</build_depend>
+  <run_depend>wam_model</run_depend>
+
+  <run_depend>moveit_ros_planning_interface</run_depend>
+  <run_depend>moveit_core</run_depend>
+  <run_depend>moveit_ros_move_group</run_depend>
+  <run_depend>moveit_visual_tools</run_depend>
+  <build_depend>moveit_visual_tools</build_depend>
+  <build_depend>moveit_core</build_depend>
+  <build_depend>moveit_ros_planning_interface</build_depend>
+  <build_depend>moveit_ros_move_group</build_depend>
+
+  <run_depend>controller_manager</run_depend>
+  <build_depend>controller_manager</build_depend>
+  <run_depend>effort_controllers</run_depend>
+  <run_depend>joint_state_controller</run_depend>
+  <run_depend>joint_trajectory_controller</run_depend>
+  <run_depend>gazebo_ros</run_depend>
+  <run_depend>gazebo_ros_control</run_depend>
+  <run_depend>position_controllers</run_depend>
+  <run_depend>robot_state_publisher</run_depend>
+  <run_depend>rostopic</run_depend>
+
+  <build_depend>message_generation</build_depend>
+  <build_depend>wam_model</build_depend>
+  <run_depend>wam_model</run_depend>
+  <build_depend>wam_moveit</build_depend>
+  <run_depend>wam_moveit</run_depend>
+  
+  <run_depend>message_runtime</run_depend>
+  <run_depend>geometry_msgs</run_depend>
+
+  <build_depend>control_toolbox</build_depend>
+  <run_depend>control_toolbox</run_depend>
+
+  <build_depend>ball_calibration</build_depend>
+  <run_depend>ball_calibration</run_depend>
+
+  <build_depend>trajectory_msgs</build_depend>
+  <run_depend>trajectory_msgs</run_depend>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+</package>

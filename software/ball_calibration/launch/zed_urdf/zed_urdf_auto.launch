@@ -1,0 +1,16 @@
+<!-- Based on https://github.com/stereolabs/zed-ros-wrapper/blob/master/zed_wrapper/launch/include/zed_camera.launch.xml -->
+<launch>
+    <!-- Camera Model and Name -->
+    <arg name="camera_name"           default="zed2" /> <!-- The name you want -->
+
+    <!-- ROS URDF description of the ZED -->
+    <param name="$(arg camera_name)_description"
+            command="$(find xacro)/xacro '$(find ball_calibration)/models/zed_descr_auto.urdf.xacro'
+                    camera_name:=$(arg camera_name)"
+    />
+
+    <node name="$(arg camera_name)_state_publisher2" pkg="robot_state_publisher" type="robot_state_publisher" output="screen" required="true" ns="$(arg camera_name)">
+        <remap from="robot_description" to="$(arg camera_name)_description" />
+    </node>
+
+</launch>

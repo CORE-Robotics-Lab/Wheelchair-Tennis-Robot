@@ -1,0 +1,29 @@
+<launch>
+    <!-- Arguements -->
+      <arg name="sim_arm_controller" default="true" />
+      <arg name="sim_drive_controller" default="false" />
+      <arg name="sim_ball" default="false" />      <!-- Param -->
+      
+      <param name="/use_sim_time" value="true" />
+      <param name="robot_description" command="$(find xacro)/xacro '$(find wam_model)/robots/wam7.urdf.xacro'"/>      <!-- Rviz -->
+      <include file="$(find wtr_plan)/launch/rviz.launch">
+        <arg name="settings_file" value="courts_vision" />
+      </include>      <!-- Camera -->
+      <include file="$(find ball_calibration)/launch/box_cameras.launch">
+        <arg name="at_courts" value="true" />
+      </include>      <!-- Ball -->
+      <node pkg="wtr_sim" name="ball_sim" type="ball_sim.py" output="screen" if="$(arg sim_ball)"/>      <!-- Arm -->
+      <!-- <include file="$(find wam_control)/launch/sim_arm_controller.launch" if="$(arg sim_arm_controller)"/>
+      <include file="$(find wam_moveit)/launch/moveit_demo.launch"/> -->      <!-- Navigation -->
+      <!-- <include file="$(find wtr_navigation)/launch/navigation.launch">
+        <arg name="sim_drive_controller" value="$(arg sim_drive_controller)" />
+      </include> -->      <!-- Planning -->      <!-- rviz's tennis court -->
+      <node pkg="map_server" type="map_server" name="map_server" required="false" output="screen"
+         args="$(find wtr_navigation)/config/map/tennis_map.yaml">
+          <param name="frame_id" value="world"/>
+      </node>
+      <!-- <node pkg="map_server" type="map_server" name="map_server" required="false" output="screen"
+         args="$(find wtr_navigation)/config/map/tennis_court_map.yaml">
+          <param name="frame_id" value="world"/>
+      </node> -->
+      </launch>

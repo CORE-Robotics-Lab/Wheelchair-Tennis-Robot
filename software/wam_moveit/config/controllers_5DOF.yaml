@@ -1,0 +1,10 @@
+controller_list:
+  - name: joint_group_trajectory_velocity_controller   
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    joints:
+      - wam/base_yaw_joint
+      - wam/shoulder_pitch_joint
+      - wam/shoulder_yaw_joint
+      - wam/elbow_pitch_joint
+      - wam/wrist_yaw_joint

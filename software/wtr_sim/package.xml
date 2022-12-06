@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>wtr_sim</name>
+  <version>0.0.0</version>
+  <description>simulation files</description>
+
+  <maintainer email="dmartin1@gatech.edu">Daniel Martin</maintainer>
+
+  <license>MIT</license>
+
+  <url type="website">https://github.gatech.edu/MCG-Lab/Wheelchair-Tennis-Robot</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>gazebo_ros</depend>
+  <depend>roscpp</depend>
+
+  <exec_depend>joint_state_controller</exec_depend>
+  <exec_depend>effort_controllers</exec_depend>
+  <exec_depend>controller_manager</exec_depend>
+  <exec_depend>gazebo_ros_control</exec_depend>
+
+  <export>
+    <gazebo_ros gazebo_model_path="${prefix}/models"/>
+    <gazebo_ros gazebo_media_path="${prefix}/models"/>
+  </export>
+</package>

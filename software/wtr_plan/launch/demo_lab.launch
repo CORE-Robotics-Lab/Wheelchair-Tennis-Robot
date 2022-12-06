@@ -1,0 +1,31 @@
+<launch>
+      <!-- Arguements -->
+      <arg name="sim_arm_controller" default="true" />
+      <arg name="sim_ball" default="false" />
+
+      <!-- Param -->
+      <param name="/use_sim_time" value="false" />
+      <param name="robot_description" command="$(find xacro)/xacro '$(find wam_model)/robots/wam7.urdf.xacro'"/>
+      <!-- <param name="robot_description_restricted" command="cat $(find wam_model)/robots/wam5_solo.urdf"/> -->
+
+      <node pkg="tf2_ros" type="static_transform_publisher" name="tf_static_world_to_map"
+      args="0 0 0 0 0 0 /world /base_footprint"/>
+
+      <!-- Rviz -->
+    <include file="$(find wtr_plan)/launch/rviz.launch">
+        <arg name="settings_file" value="lab" />
+      </include>
+
+      <!-- Camera -->
+      <include file="$(find ball_calibration)/launch/box_cameras.launch">
+        <arg name="at_courts" value="false" />
+      </include>
+
+      <!-- Ball -->
+      <node pkg="wtr_sim" name="ball_sim" type="ball_sim.py" output="screen" if="$(arg sim_ball)"/>
+
+      <!-- Arm -->
+      <include file="$(find wam_control)/launch/sim_arm_controller.launch" if="$(arg sim_arm_controller)"/>
+      <include file="$(find wam_moveit)/launch/moveit_demo.launch"/>
+
+</launch>

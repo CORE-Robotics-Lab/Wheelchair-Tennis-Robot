@@ -1,0 +1,53 @@
+<launch>
+    <arg name="id"/>
+    <arg name="ip" default="$(arg id)"/>
+
+    <machine name="jetson$(arg id)" address="192.168.1.10$(arg ip)" user="jetson-nano-$(arg id)" password="1111"
+        env-loader="/home/jetson-nano-$(arg id)/catkin_ws/src/Wheelchair-Tennis-Robot/env.sh" default="scope" />
+
+    <arg name="camera_name"          default="camera_$(arg id)" />
+    <arg name="zed_node_name"        default="camera_$(arg id)_node" />
+    <arg name="base_frame"           default="camera_$(arg id)_base_link" />
+
+    <group ns="$(arg camera_name)">
+            <param name="$(arg camera_name)_description"
+                command="$(find xacro)/xacro '$(find zed_wrapper)/urdf/zed_descr.urdf.xacro'
+                                    camera_name:=$(arg camera_name)
+                                    camera_model:=zed2
+                                    base_frame:=$(arg base_frame)
+                                    cam_pos_x:=0 cam_pos_y:=0 cam_pos_z:=0
+                                    cam_roll:=0 cam_pitch:=0 cam_yaw:=0"
+                />
+            <!-- <param name="$(arg camera_name)_description"
+            command="$(find xacro)/xacro '$(find ball_calibration)/models/zed_descr_auto.urdf.xacro'
+                    camera_name:=$(arg camera_name)"
+            /> -->
+            
+            <node name="$(arg camera_name)_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" output="screen">
+                    <remap from="robot_description" to="$(arg camera_name)_description" />
+            </node>
+
+            <node name="$(arg zed_node_name)" pkg="zed_wrapper" type="zed_wrapper_node" output="screen">
+                <rosparam file="$(find ball_calibration)/config/zed/common.yaml" command="load" />
+                <rosparam file="$(find ball_calibration)/config/zed/zed2.yaml" command="load" />
+
+                <param name="general/camera_name"               value="$(arg camera_name)" />
+                <param name="general/base_frame"                value="$(arg base_frame)" />
+            </node>
+
+        <!-- apriltag_ros Node -->
+        <node pkg="apriltag_ros" type="apriltag_ros_continuous_node" name="apriltag_ros_continuous_node" >
+            <!-- Remap topics from those used in code to those on the ROS network -->
+            <remap from="image_rect" to="$(arg zed_node_name)/rgb/image_rect_color" />
+            <remap from="camera_info" to="$(arg zed_node_name)/rgb/camera_info" />
+
+            <!-- Set parameters -->
+            <rosparam command="load" file="$(find ball_calibration)/config/apriltag/settings.yaml" />
+            <rosparam command="load" file="$(find ball_calibration)/config/apriltag/tags.yaml"  />
+
+            <param name="camera_frame" type="str" value="$(arg camera_name)_left_camera_optical_frame" />
+            <param name="publish_tag_detections_image" type="bool" value="true" />      <!-- default: false -->
+            <param name="publish_tf" type="bool" value="true" />                        <!-- default: false -->
+        </node>
+    </group>
+</launch>

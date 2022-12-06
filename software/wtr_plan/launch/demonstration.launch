@@ -1,0 +1,172 @@
+<launch>
+ <node pkg="rosbag" type="record" name="rosbag_record"
+       args="record -o /home/core-robotics/court_bags/new_ball_launcher/paper_vision/human/lab_15
+            /ball_1_pose
+            /ball_2_pose
+            /ball_3_pose
+            /ball_4_pose
+            /ball_5_pose
+            /ball_6_pose
+            /ball_1_pose_transformed
+            /ball_2_pose_transformed
+            /ball_3_pose_transformed
+            /ball_4_pose_transformed
+            /ball_5_pose_transformed
+            /ball_6_pose_transformed
+
+
+            /ball_odometry
+
+            "/>
+</launch>
+
+<!-- 
+            /ball/event
+            /ball/joint_states
+            /ball/odometry/reset
+            /ball/rollout/confidence
+            /ball/rollout/confidence_array
+            /ball/rollout/covariance
+            /ball/rollout/path
+            /ball/set_pose
+
+            
+
+            /velodyne_points
+            /wheel_est_vel
+            /wheel_est_pos
+            /wheel_cmd_vel
+            /zed_wheelchair_node/imu/data
+
+            /move_base/NavfnROS/plan
+            /move_base/TebLocalPlannerROS/global_plan
+            /move_base/TebLocalPlannerROS/local_plan
+            /move_base/TebLocalPlannerROS/teb_feedback
+            /move_base/TebLocalPlannerROS/teb_markers
+            /move_base/TebLocalPlannerROS/teb_markers_array
+            /move_base/TebLocalPlannerROS/teb_poses
+            
+            /move_base/current_goal
+            /move_base/goal 
+            /joint_states
+            /joint_trapezoidal_trajectory_controller/state
+
+            /hit_ball_point
+
+            /wcodometry_global
+            /wcodometry_local -->
+
+
+<!-- <launch>
+ <node pkg="rosbag" type="record" name="rosbag_record"
+       args="record -o $(find wtr_plan)/demonstrations/swing
+            /ball_1_pose
+            /ball_2_pose
+            /ball/event
+            /wam1/joint_states
+            /wam2/joint_states
+            "/>
+</launch> -->
+
+            <!-- /velodyne_points
+            /wheel_est_vel
+            /wheel_est_pos
+            /wheel_cmd_vel
+            /zed_wheelchair_node/imu/data
+
+            /move_base/NavfnROS/plan
+            /move_base/TebLocalPlannerROS/global_plan
+            /move_base/TebLocalPlannerROS/local_plan
+            /move_base/TebLocalPlannerROS/teb_feedback
+            /move_base/TebLocalPlannerROS/teb_markers
+            /move_base/TebLocalPlannerROS/teb_markers_array
+            /move_base/TebLocalPlannerROS/teb_poses
+            
+            /move_base/current_goal
+            /move_base/goal -->
+
+<!-- /camera_1_detection/debug_img/compressed
+            /camera_2_detection/debug_img/compressed
+            /camera_3_detection/debug_img/compressed
+            /camera_4_detection/debug_img/compressed
+            /camera_5_detection/debug_img/compressed
+            /camera_6_detection/debug_img/compressed
+            /camera_1_detection/camera_info
+            /camera_2_detection/camera_info
+            /camera_3_detection/camera_info
+            /camera_4_detection/camera_info
+            /camera_5_detection/camera_info
+            /camera_6_detection/camera_info
+
+            /velodyne_points
+            /wheel_est_vel
+            /wheel_est_pos
+            /wheel_cmd_vel
+            /zed_wheelchair_node/imu/data
+
+            /move_base/NavfnROS/plan
+            /move_base/TebLocalPlannerROS/global_plan
+            /move_base/TebLocalPlannerROS/local_plan
+            /move_base/TebLocalPlannerROS/teb_feedback
+            /move_base/TebLocalPlannerROS/teb_markers
+            /move_base/TebLocalPlannerROS/teb_markers_array
+            /move_base/TebLocalPlannerROS/teb_poses
+            
+            /move_base/current_goal
+            /move_base/goal  -->
+
+
+            <!-- /ball_1_pose
+            /ball_2_pose
+            /ball_3_pose
+            /ball_4_pose
+            /ball_5_pose
+            /ball_6_pose
+
+            /ball_1_pose_transformed
+            /ball_2_pose_transformed
+            /ball_3_pose_transformed
+            /ball_4_pose_transformed
+            /ball_5_pose_transformed
+            /ball_6_pose_transformed
+
+            /camera_1_detection/debug_img/compressed
+            /camera_2_detection/debug_img/compressed
+            /camera_3_detection/debug_img/compressed
+            /camera_4_detection/debug_img/compressed
+            /camera_5_detection/debug_img/compressed
+            /camera_6_detection/debug_img/compressed
+            /camera_1_detection/camera_info
+            /camera_2_detection/camera_info
+            /camera_3_detection/camera_info
+            /camera_4_detection/camera_info
+            /camera_5_detection/camera_info
+            /camera_6_detection/camera_info
+
+            /velodyne_points
+            /wheel_est_vel
+            /wheel_est_pos
+            /wheel_cmd_vel
+            /zed_wheelchair_node/imu/data
+
+            /move_base/NavfnROS/plan
+            /move_base/TebLocalPlannerROS/global_plan
+            /move_base/TebLocalPlannerROS/local_plan
+            /move_base/TebLocalPlannerROS/teb_feedback
+            /move_base/TebLocalPlannerROS/teb_markers
+            /move_base/TebLocalPlannerROS/teb_markers_array
+            /move_base/TebLocalPlannerROS/teb_poses
+            
+            /move_base/current_goal
+            /move_base/goal 
+            /joint_states
+            /joint_trapezoidal_trajectory_controller/state
+
+            /hit_ball_point
+             -->
+
+
+
+
+
+

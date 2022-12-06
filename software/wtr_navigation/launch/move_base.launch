@@ -1,0 +1,34 @@
+<launch>
+    <!-- identity transform from world -> map -> odom and base_footprint -> base_link to make mapping happy -->
+    <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="tf_static_world_to_map"
+          args="0.55 0.4 0 -0.045 0 0 world map"/> -->
+
+      <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="tf_static_world_to_map"
+            args="0 0 0 0 0 0 world map"/> -->
+            
+    <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="tf_static_world_to_map"
+          args="0.5 1.2 0 -0.04 0 0 world map"/> -->
+    <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="tf_static_world_to_mapdawsdw"
+          args="0 0 0 1.5 0 0 world slam_map"/> -->
+    <node pkg="tf2_ros" type="static_transform_publisher" name="tf_static_world_to_map_2"
+          args="-6 -8.5 0 0 0 0 world costmap"/>
+
+    <!-- Border Map -->
+    <node pkg="map_server" type="map_server" name="map_server" args="$(find wtr_navigation)/config/map/border_map.yaml" ns="borders">
+        <param name="frame_id" value="costmap"/>
+    </node>
+
+    <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+        <rosparam file="$(find wtr_navigation)/config/move_base/costmap_common_params.yaml" command="load" ns="local_costmap" />
+        <rosparam file="$(find wtr_navigation)/config/move_base/local_costmap_params.yaml" command="load" subst_value="True"/>
+
+        <rosparam file="$(find wtr_navigation)/config/move_base/costmap_common_params.yaml" command="load" ns="global_costmap" />
+        <rosparam file="$(find wtr_navigation)/config/move_base/global_costmap_params.yaml" command="load" subst_value="True" />
+
+        <!-- <rosparam file="$(find wtr_navigation)/config/move_base/base_local_planner_params.yaml" command="load" />
+        <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS" /> -->
+        <rosparam file="$(find wtr_navigation)/config/move_base/ted_base_local_planner_params.yaml" command="load" />
+        <param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" />
+        <param name="controller_frequency" value="20.0" />
+    </node>
+</launch>

@@ -1,0 +1,5 @@
+geometry_msgs/PointStamped ball_position
+geometry_msgs/Vector3 swing_direction
+---
+bool success
+float64 percent_complete

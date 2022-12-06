@@ -1,0 +1,54 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+    <world name="IARRC Curvy">
+        <scene>
+            <sky>
+                <clouds>
+                    <speed>12</speed>
+                </clouds>
+            </sky>
+            <ambient>1.0 1.0 1.0 1.0</ambient>
+            <background>0.7 0.7 0.7 1.0</background>
+            <shadows>true</shadows>
+            <grid>false</grid>
+            <origin_visual>false</origin_visual>
+        </scene>
+
+        <include>
+            <uri>model://sun</uri>
+        </include>
+
+        <model name='net'>
+            <pose>12.0139 0.00204 0.5 0 0 0</pose>
+            <static>true</static>
+            <link name='net_link'>
+                <collision name='collision'>
+                    <geometry>
+                        <box>
+                            <size>0.194382 12.6506 1</size>
+                        </box>
+                    </geometry>
+                </collision>
+                <visual name='visual'>
+                    <geometry>
+                        <box>
+                            <size>0.194382 12.6506 1</size>
+                        </box>
+                    </geometry>
+                    <material>
+                        <script>
+                            <name>Gazebo/Grey</name>
+                            <uri>file://media/materials/scripts/gazebo.material</uri>
+                        </script>
+                    </material>
+                </visual>
+            </link>
+        </model>
+
+        <include>
+            <uri>model://TennisCourt</uri>
+            <pose>12 0 0 0 0 0</pose>
+        </include>
+
+    </world>
+</sdf>

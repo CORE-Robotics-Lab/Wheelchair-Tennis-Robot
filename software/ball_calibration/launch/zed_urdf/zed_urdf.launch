@@ -1,0 +1,38 @@
+<!-- Based on https://github.com/stereolabs/zed-ros-wrapper/blob/master/zed_wrapper/launch/include/zed_camera.launch.xml -->
+<launch>
+    <!-- Camera Model and Name -->
+    <arg name="camera_name"           default="zed2" /> <!-- The name you want -->
+    <arg name="camera_model"          default="zed2" /> <!-- 'zed' or 'zedm' or 'zed2' -->
+
+    <!-- Base frame -->
+    <arg name="base_frame"            default="world" />
+
+    <!-- Position respect to base frame (i.e. "base_link) -->
+    <arg name="cam_pos_x"             default="0.0" />
+    <arg name="cam_pos_y"             default="0.0" />
+    <arg name="cam_pos_z"             default="0.0" />
+
+    <!-- Orientation respect to base frame (i.e. "base_link) -->
+    <arg name="cam_roll"              default="0.0" />
+    <arg name="cam_pitch"             default="0.0" />
+    <arg name="cam_yaw"               default="0.0" />
+
+    <!-- ROS URDF description of the ZED -->
+    <param name="$(arg camera_name)_description"
+            command="$(find xacro)/xacro '$(find ball_calibration)/models/zed_descr.urdf.xacro'
+                    camera_name:=$(arg camera_name)
+                    camera_model:=$(arg camera_model)
+                    base_frame:=$(arg base_frame)
+                    cam_pos_x:=$(arg cam_pos_x)
+                    cam_pos_y:=$(arg cam_pos_y)
+                    cam_pos_z:=$(arg cam_pos_z)
+                    cam_roll:=$(arg cam_roll)
+                    cam_pitch:=$(arg cam_pitch)
+                    cam_yaw:=$(arg cam_yaw)"
+    />
+
+    <node name="$(arg camera_name)_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" output="screen" required="true" ns="$(arg camera_name)">
+        <remap from="robot_description" to="$(arg camera_name)_description" />
+    </node>
+
+</launch>

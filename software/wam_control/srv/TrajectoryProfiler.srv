@@ -1,0 +1,18 @@
+# Order is based on base->palm joints order
+float64[] beg_positions   # Optional: If vector is empty, profiler just uses current joint position 
+float64[] mid_positions   # Optional: If vector is empty, profiler just ignores it
+float64[] end_positions   # Required: Goal joint position
+
+bool execute               # Should trajectory be executed? Probably shouldn't execute if you have differnet beginning joints than current
+bool check_validity        # Check if safe
+
+float64 vel_cap        # Caps the velocity, negative means ignored
+float64 acc_cap        # Caps the acceration, negative means ignored
+---
+bool success
+
+trajectory_msgs/JointTrajectory trajectory  # With only contain key trajectory points
+float64 mid_arrival
+float64 end_arrival
+
+

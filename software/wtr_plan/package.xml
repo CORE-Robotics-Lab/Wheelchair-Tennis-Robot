@@ -1,0 +1,23 @@
+<package>
+  <name>wtr_plan</name>
+  <version>0.0.0</version>
+  <description>Tennis files</description>
+
+  <maintainer email="dmartin1@gatech.edu">Daniel Martin</maintainer>
+
+  <license>MIT</license>
+
+  <url type="website">https://github.gatech.edu/MCG-Lab/Wheelchair-Tennis-Robot</url>
+
+  <build_depend>wtr_navigation</build_depend>
+  <run_depend>wtr_navigation</run_depend>
+
+  <build_depend>wam_control</build_depend>
+  <run_depend>wam_control</run_depend>
+
+  <build_depend>wtr_sim</build_depend>
+  <run_depend>wtr_sim</run_depend>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+</package>

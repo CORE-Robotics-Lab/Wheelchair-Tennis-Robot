@@ -1,0 +1,96 @@
+<launch>
+
+    <!-- Court box placement or custom -->
+    <arg name="at_courts" default="false" />
+
+    <!-- Box's Static TF  -->    
+    <!-- Court Box Placement, DO NOT EDIT -->
+    <group ns="box" if="$(arg at_courts)">
+        <node pkg="tf2_ros" type="static_transform_publisher" name="transfrom1" args="5.54 -0.0265 0 1.57 0 0 world box_corner"/>
+        <node pkg="tf2_ros" type="static_transform_publisher" name="transfrom2" args="-0.365 -0.365 0 0 0 0 box_corner box_origin"/>
+        <node pkg="tf2_ros" type="static_transform_publisher" name="transfrom3" args="0.365 0 0.356 1.57 0 1.57 box_origin box_bundle_1"/>
+        <node pkg="tf2_ros" type="static_transform_publisher" name="transfrom5" args="0 0.365 0.364 3.14 0 1.57 box_origin box_bundle_2"/>
+        <node pkg="tf2_ros" type="static_transform_publisher" name="transfrom4" args="-0.365 0 0.36 -1.57 0 1.57 box_origin box_bundle_3"/>
+        <node pkg="tf2_ros" type="static_transform_publisher" name="transfrom6" args="0 -0.365 0.363 0 0 1.57 box_origin box_bundle_4"/>
+    </group>
+
+    <group ns="opp_box" if="$(arg at_courts)">
+        <node pkg="tf2_ros" type="static_transform_publisher" name="transfrom1" args="18.29 0.0265 0 -1.57 0 0 world opp_box_corner"/>
+        <node pkg="tf2_ros" type="static_transform_publisher" name="transfrom2" args="-0.365 -0.365 0 0 0 0 opp_box_corner opp_box_origin"/>
+        <node pkg="tf2_ros" type="static_transform_publisher" name="transfrom3" args="0.365 0 0.356 1.57 0 1.57 opp_box_origin box_opp_bundle_1"/>
+        <node pkg="tf2_ros" type="static_transform_publisher" name="transfrom5" args="0 0.365 0.364 3.14 0 1.57 opp_box_origin box_opp_bundle_2"/>
+        <node pkg="tf2_ros" type="static_transform_publisher" name="transfrom4" args="-0.365 0 0.36 -1.57 0 1.57 opp_box_origin box_opp_bundle_3"/>
+        <node pkg="tf2_ros" type="static_transform_publisher" name="transfrom6" args="0 -0.365 0.363 0 0 1.57 opp_box_origin box_opp_bundle_4"/>
+    </group>
+
+    <!-- Custom Lab Box Placement, edit world -> box_corner if you want  -->
+    <!-- <group ns="box" unless="$(arg at_courts)">
+        <node pkg="tf2_ros" type="static_transform_publisher" name="transfrom1" args="1.95 -2.88 0 3.14 0 0 world box_corner"/>
+        <node pkg="tf2_ros" type="static_transform_publisher" name="transfrom2" args="-0.365 -0.365 0 0 0 0 box_corner box_origin"/>
+        <node pkg="tf2_ros" type="static_transform_publisher" name="transfrom3" args="0.365 0 0.356 1.57 0 1.57 box_origin box_bundle_1"/>
+        <node pkg="tf2_ros" type="static_transform_publisher" name="transfrom5" args="0 0.365 0.364 3.14 0 1.57 box_origin box_bundle_2"/>
+        <node pkg="tf2_ros" type="static_transform_publisher" name="transfrom4" args="-0.365 0 0.36 -1.57 0 1.57 box_origin box_bundle_3"/>
+        <node pkg="tf2_ros" type="static_transform_publisher" name="transfrom6" args="0 -0.365 0.363 0 0 1.57 box_origin box_bundle_4"/>
+    </group> -->
+
+    <group ns="box" unless="$(arg at_courts)">
+        <node pkg="tf2_ros" type="static_transform_publisher" name="transfrom1" args="1.95 -2.88 0 3.14 0 0 map box_corner"/>
+        <node pkg="tf2_ros" type="static_transform_publisher" name="transfrom2" args="-0.365 -0.365 0 0 0 0 box_corner box_origin"/>
+        <node pkg="tf2_ros" type="static_transform_publisher" name="transfrom3" args="0.365 0 0.356 1.57 0 1.57 box_origin box_bundle_1"/>
+        <node pkg="tf2_ros" type="static_transform_publisher" name="transfrom5" args="0 0.365 0.364 3.14 0 1.57 box_origin box_bundle_2"/>
+        <node pkg="tf2_ros" type="static_transform_publisher" name="transfrom4" args="-0.365 0 0.36 -1.57 0 1.57 box_origin box_bundle_3"/>
+        <node pkg="tf2_ros" type="static_transform_publisher" name="transfrom6" args="0 -0.365 0.363 0 0 1.57 box_origin box_bundle_4"/>
+    </group>
+
+    <!-- Requires config/camera_calibration.yaml for each camera! -->
+    <include file="$(find ball_calibration)/launch/zed_urdf/zed_urdf_auto.launch">
+        <arg name="camera_name"           value="camera_1" />
+    </include>
+
+    <include file="$(find ball_calibration)/launch/zed_urdf/zed_urdf_auto.launch">
+        <arg name="camera_name"           value="camera_2" />
+    </include>
+
+    <include file="$(find ball_calibration)/launch/zed_urdf/zed_urdf_auto.launch">
+        <arg name="camera_name"           value="camera_3" />
+    </include>
+
+    <include file="$(find ball_calibration)/launch/zed_urdf/zed_urdf_auto.launch">
+        <arg name="camera_name"           value="camera_4" />
+    </include>
+
+    <include file="$(find ball_calibration)/launch/zed_urdf/zed_urdf_auto.launch">
+        <arg name="camera_name"           value="camera_5" />
+    </include>
+
+    <include file="$(find ball_calibration)/launch/zed_urdf/zed_urdf_auto.launch">
+        <arg name="camera_name"           value="camera_6" />
+    </include>
+
+    <!-- Ball Localization -->
+    <include file="$(find ball_calibration)/launch/ball_localization.launch"/>
+
+    <!-- Record Camera + RVIZ -->
+    <arg name="record_video" default="false" />
+    <group  if="$(arg record_video)">
+
+        <param name="zed_description" command="$(find xacro)/xacro '$(find zed_wrapper)/urdf/zed_descr.urdf.xacro'
+                                camera_name:=zed_video
+                                camera_model:=zed2
+                                base_frame:=box_bundle_2
+                                cam_pos_x:=0.042 cam_pos_y:=0.927 cam_pos_z:=1.423
+                                cam_roll:=2.514 cam_pitch:=1.212 cam_yaw:=-2.158"
+                />
+        <node name="zed_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" output="screen">
+                <remap from="robot_description" to="zed_description" />
+        </node>
+
+        <node name="zed_video_node" pkg="zed_wrapper" type="zed_wrapper_node" >
+                <rosparam file="$(find ball_calibration)/config/zed/common_720.yaml" command="load" />
+                <rosparam file="$(find ball_calibration)/config/zed/zed2.yaml" command="load" />
+
+                <param name="general/camera_name"               value="zed_video" />
+                <param name="general/base_frame"                value="bundle_2" />
+        </node>
+    </group>
+</launch>

@@ -1,0 +1,53 @@
+<launch>
+    <arg name="sim_drive_controller" default="false" />
+
+    <!-- only works in autonmousm mode atm -->
+    <arg name="wheelchair_joystick" default="false" /> 
+
+    <!-- Wheel chair controller -->
+    <group ns="wheelchair">
+        <!-- I have to run in namespace group because controller manager can only have one hw interface -->
+        <rosparam file="$(find wtr_navigation)/config/controllers/drive_controller.yaml" command="load"/>
+        <node name="drive_controller_spawner" pkg="controller_manager" type="spawner" output="screen" args="drive_controller" />
+
+        <node pkg="wtr_navigation" type="drive_hw_interface" name="drive_hw_interface" output="screen" >
+                <remap from="/wheelchair/drive_controller/cmd_vel" to="/cmd_vel"/>
+                <param name="sim_drive_controller" value="$(arg sim_drive_controller)"/>
+                <param name="wheelchair_joystick" value="$(arg wheelchair_joystick)"/>
+        </node>
+    </group>
+
+    <!-- EKF Localization (Comment out when creating graph) -->
+    <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization_local" output="screen" unless="$(arg sim_drive_controller)">
+            <rosparam command="load" file="$(find wtr_navigation)/config/localization_local.yaml"/>
+            <remap from="/odometry/filtered" to="/wcodometry_local"/>
+    </node>
+    <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization_global" output="screen" unless="$(arg sim_drive_controller)">
+        <rosparam command="load" file="$(find wtr_navigation)/config/localization_global.yaml"/>
+        <remap from="/odometry/filtered" to="/wcodometry_global"/>
+    </node>
+
+    <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization_sim" output="screen" if="$(arg sim_drive_controller)">
+        <rosparam command="load" file="$(find wtr_navigation)/config/localization_sim.yaml"/>
+        <remap from="/odometry/filtered" to="/wcodometry_local"/>
+    </node>
+
+    <include file="$(find wtr_navigation)/launch/hdl_localization.launch" unless="$(arg sim_drive_controller)"/>
+
+    <!-- Publish a static transform between map to odom. Needed if we are in the simulation mode -->
+    <node pkg="tf2_ros" type="static_transform_publisher" name="tf_static_world_to_map_24"
+        args="0 0 0 0 0 0 world odom" if="$(arg sim_drive_controller)"/>
+
+    <node pkg="tf2_ros" type="static_transform_publisher" name="tf_static_world_to_map_24kkkk"
+        args="0 0 0 0 0 0 world odom"/>
+
+
+    <!-- Move Base-->
+    <include file="$(find wtr_navigation)/launch/move_base.launch"/>
+
+    <!-- Running teb server -->
+    <node name="teb_server"  pkg="wtr_navigation" type="teb_server" output="screen">
+        <rosparam command="load" file="$(find wtr_navigation)/config/move_base/ted_base_local_planner_params.yaml"/>
+    </node>
+
+</launch>

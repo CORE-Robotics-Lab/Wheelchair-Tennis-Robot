@@ -1,0 +1,11 @@
+<launch>
+    <rosparam file="$(find wam_control)/config/joint_limits.yaml" command="load"/>
+
+    <!-- Arm Controller -->
+    <node pkg="wam_control" type="trajectory_profiler" name="trajectory_profiler" output="screen" >  <!--Removed  -->
+        <param name="trajectory_server"  value="/joint_group_trajectory_controller/follow_joint_trajectory" />
+    </node>
+</launch>
+
+<!-- /joint_trapezoidal_trajectory_controller/follow_joint_trajectory --> 
+<!-- joint_group_trajectory_controller/follow_joint_trajectory  -->

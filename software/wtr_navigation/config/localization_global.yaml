@@ -1,0 +1,42 @@
+#robot_localization EKF configuration from zed and wheel odometry data
+
+frequency: 100
+sensor_timeout: .1
+two_d_mode: true
+
+map_frame: world #map
+odom_frame: odom
+world_frame: world #map  # map -> odom
+base_link_frame: base_footprint
+
+# (X,Y,Z,roll,pitch,yaw,X˙,Y˙,Z˙,roll˙,pitch˙,yaw˙,X¨,Y¨,Z¨)
+imu0: /zed_wheelchair_node/imu/data      # Only yaw, yaw_dot
+imu0_config: [false, false, false,
+              false, false, true,
+              false, false, false,
+              false, false, true,
+              false, false, false]
+imu0_queue_size: 100
+imu0_differential: true
+imu0_relative: true
+
+odom0: /wheelchair/drive_controller/odom # Only care about x_dot
+odom0_config: [false, false, false,
+               false, false, false,
+               true, false, false,
+               false, false, false,
+               false, false, false]
+odom0_queue_size: 100
+
+odom1: /hdl_odometry                     # Only care about x, y, yaw
+odom1_config: [true, true, false,
+               false, false, true,
+               false, false, false,
+               false, false, false,
+               false, false, false]
+odom1_queue_size: 100
+
+smooth_lagged_data: true
+history_length: 0.5
+
+publish_tf: true

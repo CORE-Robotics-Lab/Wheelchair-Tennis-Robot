@@ -1,0 +1,49 @@
+joint_group_trajectory_controller:
+  type: "position_controllers/JointTrajectoryController"
+  joints:
+    - wam/base_yaw_joint
+    - wam/shoulder_pitch_joint
+    - wam/shoulder_yaw_joint
+    - wam/elbow_pitch_joint
+    - wam/wrist_yaw_joint
+    - wam/wrist_pitch_joint
+    - wam/palm_yaw_joint
+  constraints:
+    wam/base_yaw_joint: {trajectory: .1, goal: .1}
+    wam/shoulder_pitch_joint: {trajectory: .1, goal: .1}
+    wam/shoulder_yaw_joint: {trajectory: .1, goal: .1}
+    wam/elbow_pitch_joint: {trajectory: .1, goal: .1}
+    wam/wrist_yaw_joint: {trajectory: .1, goal: .1}
+    wam/wrist_pitch_joint: {trajectory: .1, goal: .1}
+    wam/palm_yaw_joint: {trajectory: .1, goal: .1}
+    stopped_velocity_tolerance: 100000
+
+BC_wheel_effort_controller:
+    type: effort_controllers/JointEffortController
+    joint: wam/BC_roller_joint
+    pid: {p: 1.0}
+FL_wheel_effort_controller:
+    type: effort_controllers/JointEffortController
+    joint: wam/FL_roller_joint
+    pid: {p: 1.0}
+FR_wheel_effort_controller:
+    type: effort_controllers/JointEffortController
+    joint: wam/FR_roller_joint
+    pid: {p: 1.0}
+
+joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: 50
+
+/gazebo_ros_control:
+  pid_gains:
+    wam:
+      base_yaw_joint: {p: 100}
+      shoulder_pitch_joint: {p: 100}
+      shoulder_yaw_joint: {p: 100}
+      elbow_pitch_joint: {p: 100}
+      wrist_yaw_joint: {p: 100}
+      wrist_pitch_joint: {p: 100}
+      palm_yaw_joint: {p: 100}
+      R_wheel_joint: {p: 100}
+      L_wheel_joint: {p: 100}

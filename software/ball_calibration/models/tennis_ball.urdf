@@ -1,0 +1,36 @@
+<robot name="ball">
+    <material name="green">
+        <color rgba="0 1 0 1"/>
+    </material>
+
+    <link name="ball">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius=".034"/>
+            </geometry>
+            <material name="green" />
+        </visual>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius=".034"/>
+            </geometry>
+            <surface>
+                <bounce restitution_coefficient="1.0" threshold="0.01"/>
+            </surface>
+        </collision>
+    </link>
+    
+    <gazebo reference="ball">
+        <mu1>1</mu1>
+        <mu2>1</mu2>
+        <kp>10000000000</kp>
+        <kd>1</kd>
+        <minDepth>0</minDepth>
+        <maxVel>1000</maxVel>
+        <material>Gazebo/Green</material>
+        <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+</robot>

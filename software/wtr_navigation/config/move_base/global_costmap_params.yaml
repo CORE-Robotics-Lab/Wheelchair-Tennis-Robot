@@ -1,0 +1,21 @@
+global_costmap:
+  global_frame: costmap
+  update_frequency: 25.0
+  publish_frequency: 25.0
+  rolling_window: false
+  width: 17.9
+  height: 17
+  resolution: 0.05
+
+  transform_tolerance: 0.2
+
+  always_send_full_costmap: false
+  static_map: true
+
+  plugins:
+    - {name: "map_server", type: "costmap_2d::StaticLayer"}
+
+  map_server:
+    map_topic: "/borders/map"
+
+# Just looked at https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pinterest.com%2Fpin%2F556898310144828724%2F&psig=AOvVaw2JDruJTquqNM62ySfSBQMH&ust=1623203699572000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCKDts5H3hvECFQAAAAAdAAAAABA4 for reference

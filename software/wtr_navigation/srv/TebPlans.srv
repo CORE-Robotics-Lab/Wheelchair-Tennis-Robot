@@ -1,0 +1,6 @@
+geometry_msgs/Pose start
+geometry_msgs/PoseStamped[] goals
+---
+teb_local_planner/TrajectoryMsg best_trajectory
+int64 best_index
+bool success
