@@ -1,4 +1,4 @@
-# ball_localization
+# ball_localization Package
 
 ball_localization is a package of nonlinear state estimation nodes. The package was developed by Charles River Analytics, Inc.
 

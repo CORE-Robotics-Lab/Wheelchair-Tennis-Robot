@@ -1,21 +1,23 @@
 # Wheelchair-Tennis-Robot
 
-https://core-robotics-lab.github.io/Wheelchair-Tennis-Robot/
+[https://core-robotics-lab.github.io/Wheelchair-Tennis-Robot/](https://core-robotics-lab.github.io/Wheelchair-Tennis-Robot/)
 
-The Central Repo for the Wheelchair Tennis Robot Project
-
-<p align="center">
-    <img src="documents/photos/robot_fall21.jpg" alt="Robot" width="200" />
-</p>
-
-Overall Pipeline Diagram:
+The central repo for the Wheelchair Tennis Robot project.
 
 <p align="center">
-    <img src="documents/photos/wtr_arch.png" alt="Diagram" width="1000" />
+    <img src="docs/assets/img/paper/main_pic_1.png" alt="Robot" width="400" />
 </p>
 
-## Outline
+## Getting Started
+ - [Hardware](hardware/)
+   - [Mechanical](hardware/mechanical/README.md)
+   - [Electrical](hardware/electrical/README.md)
+ - [Firmware](firmware/README.md)
+ - [Software](software/README.md)
 
-Goal is to develop a motorized wheelchair with a racket-swinging robotic arm that can play tennis.
+## Overall Design
 
-Please refer to other guides!
+<p align="center">
+    <img src="docs/assets/img/paper/wtr_simplified_archv4.png" alt="Diagram" width="400" />
+</p>
+
