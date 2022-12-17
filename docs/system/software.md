@@ -131,7 +131,7 @@ These points are determined such that the arm is fully extended at contact point
 
 The pseudocode for the strategizer is provided below.
 <p align="center">
-    <img src="../../assets/img/software/algorithm.png" alt="Trapezoidal Trajectory Profiler" width="400" />
+    <img src="../../assets/img/software/algorithm.png" alt="Strategizer Algorithm" width="400" />
 </p>
 
 ---

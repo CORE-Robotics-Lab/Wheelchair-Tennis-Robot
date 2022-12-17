@@ -99,7 +99,7 @@ The motion of ESTHER's wheelchair base can be modeled as a differential drive ba
 
 We customized [ROS's Navigation Stack](http://wiki.ros.org/navigation) to fit our requirements. Our system produces local and global state estimates of the robot's pose in the world from sensor data using two EKF state estimation nodes. The complete navigation stack can be visualized in image below.
 <p align="center">
-    <img src="../../assets/img/software/wheelchair_navigation_stack.png" alt="Wheelchair Navigation Stack" width="1000" />
+    <img src="../docs/assets/img/software/wheelchair_navigation_stack.png" alt="Wheelchair Navigation Stack" width="1000" />
 </p>
 
 ### Localization
@@ -122,7 +122,7 @@ Before running any code on the arm, care should be taken to ensure that the arm 
 ### Controller
 To maximize the joint velocities when the robot makes contact with the ball, we use a trapezoidal trajectory profiler. The trapezoidal trajectory profiler takes in a start point, mid point, and end point. Each joint starts moving with maximum acceleration until it reaches either maximum velocity or the velocity from which it can decelerate in time to stop at the end position. Each joint trajectory is shifted in time to make sure that every joint is moving at its maximum velocity when the racket makes contact with the ball at the midpoint of the swing. Joints' position, velocity, and acceleration limits are accounted for while creating the trapezoidal profiles. The joints' trajectories are sent from the onboard computer to the WAM computer which uses a PID controller to execute the trajectory on the arm. An example velocity profile is shown in the figure below. 
 <p align="center">
-    <img src="../../assets/img/software/trapezoidal_traj.png" alt="Trapezoidal Trajectory Profiler" width="1000" />
+    <img src="../docs/assets/img/software/trapezoidal_traj.png" alt="Trapezoidal Trajectory Profiler" width="1000" />
 </p>
 
 ## Strategizer
@@ -138,5 +138,5 @@ These points are determined such that the arm is fully extended at contact point
 
 The pseudocode for the strategizer is provided below.
 <p align="center">
-    <img src="../../assets/img/software/algorithm.png" alt="Trapezoidal Trajectory Profiler" width="400" />
+    <img src="../docs/assets/img/software/algorithm.png" alt="Strategizer Algorithm" width="400" />
 </p>
