@@ -9,13 +9,13 @@
     - [Calibration](#calibration)
     - [Ball Detection](#ball-detection)
     - [Position Tracking](#position-tracking)
-  - [Wheelchair](#wheelchair)
+  - [Wheelchair Navigation Stack](#wheelchair-navigation-stack)
     - [Localization](#localization)
     - [Planner](#planner)
-    - [Strategizer](#strategizer)
   - [Arm](#arm)
     - [Calibration](#calibration-1)
     - [Controller](#controller)
+  - [Strategizer](#strategizer)
 
 
 ## Vision
@@ -91,16 +91,52 @@ Currently, for fusing all the camera’s position estimates we use a modified ve
 
 We tune the EKF, especially the ball bounce parameters, using a script that evulates the bag position history versus the EKF rollout for a particular time using this [testing script](ball_calibration/scripts/evalute_rollout.py)
 
-## Wheelchair
+## Wheelchair Navigation Stack
+The motion of ESTHER's wheelchair base can be modeled as a differential drive base that is equipped with three different sensors to determine the robot's state in the world.
+- Motor encoders provide the velocity and position of each wheel @ 250 Hz
+- Inertial Measurement Units (IMU) provide used to obtain the linear velocity, angular velocity, and orientation of the motion base @ 400 Hz
+- LiDAR sensors provide an egocentric 360&deg; point cloud with a 30&deg; vertical field of view @ 20 Hz
+
+We customized [ROS's Navigation Stack](http://wiki.ros.org/navigation) to fit our requirements. Our system produces local and global state estimates of the robot's pose in the world from sensor data using two EKF state estimation nodes. The complete navigation stack can be visualized in image below.
+<p align="center">
+    <img src="../../assets/img/software/wheelchair_navigation_stack.png" alt="Wheelchair Navigation Stack" width="1000" />
+</p>
 
 ### Localization
+For localizing the wheelchair, we first create a map of the environment offline by recording IMU and 3D point cloud data while manually driving the wheelchair around at slow speeds. The [`hdl_graph_slam`](https://github.com/koide3/hdl_graph_slam) package is used to create the Point Cloud Data (PCD) map from the recorded data for online use. Afterward, we use a point cloud scan matching algorithm from the [`hdl_graph_slam`](https://github.com/koide3/hdl_graph_slam) package to obtain an odometry estimate based on the LiDAR and IMU readings. A differential drive controller gives a second odometry estimate from the wheel encoder data and IMU readings.
+
+Following guidance from the [`robot_localization`](http://docs.ros.org/en/noetic/api/robot_localization/html/index.html) package, we fuse these estimates to get the current state of the wheelchair. `ekf_local` from the figure above fuses only the continuous data (i.e. IMU data and odometry estimate from the differential drive controller). This EKF provides a continuous odometry estimate, which can be used execute path plans on the robot's mobile base. `ekf_global` from the figure above fuses data from all three sources (i.e. the odometry estimate from `hdl_localization`, the odometry estimate from differential drive controller, and the IMU data). The purpose of `ekf_global` is to eliminate the drift that might accumulate overtime in the robot’s position.
+
+As per [ROS's conventions](https://www.ros.org/reps/rep-0105.html), `ekf_local` provides a continuous, smooth transform without any jumps or discontinuities between the "odom" frame and the mobile base frame. `ekf_global` eliminates the accumulated drift in the robot position by providing a transform between the "odom" frame and the "world" frame. This can cause jumps and discontinuities in the output of the estimate, however it is not a concern as we are not executing motions in this frame of reference.
+
 
 ### Planner
-
-### Strategizer
+The `move_base` package from the [ROS Navigation Stack](http://wiki.ros.org/navigation) is used to move the mobile base around the environment. Inside `move_base`, we use the default global planner [`global_planner`](http://wiki.ros.org/global_planner) which uses Dijkstra's algorithm to make a global plan, and the Timed Elastic Band (TEB) planner [`teb_local_planner`](http://wiki.ros.org/teb_local_planner) to make a local plan. The differential drive controller converts the commanded twist from the [`teb_local_planner`](http://wiki.ros.org/teb_local_planner) to wheel velocities. A low-level PID velocity controller tracks the commanded wheel velocities. 
 
 ## Arm
-
 ### Calibration
+The Barrett WAM traditionally uses relative encoders. Therefore, for accurate control, the arm needs to be calibrated properly. This [guide](https://support.barrett.com/wiki/WAM/Calibration) from Barrett WAM can be used to do zero-calibration of the arm. Additionally, it will also be useful if gravity calibration is also performed. However, with the tennis racket mounted on the robot, gravity calibration is difficult as the racket will obstruct the calibration procedure. 
+
+Before running any code on the arm, care should be taken to ensure that the arm is at home position. The arm is at home position when joints J1, J3, J4, J5, J6 and J7 are at 0 rad, joint J2 is at -2 rad, joint J4 is at &pi; rad. For visualizing follow this [link](https://support.barrett.com/wiki/WAM/HardwareSetup).
 
 ### Controller
+To maximize the joint velocities when the robot makes contact with the ball, we use a trapezoidal trajectory profiler. The trapezoidal trajectory profiler takes in a start point, mid point, and end point. Each joint starts moving with maximum acceleration until it reaches either maximum velocity or the velocity from which it can decelerate in time to stop at the end position. Each joint trajectory is shifted in time to make sure that every joint is moving at its maximum velocity when the racket makes contact with the ball at the midpoint of the swing. Joints' position, velocity, and acceleration limits are accounted for while creating the trapezoidal profiles. The joints' trajectories are sent from the onboard computer to the WAM computer which uses a PID controller to execute the trajectory on the arm. An example velocity profile is shown in the figure below. 
+<p align="center">
+    <img src="../../assets/img/software/trapezoidal_traj.png" alt="Trapezoidal Trajectory Profiler" width="1000" />
+</p>
+
+## Strategizer
+The strategizer works as follows:
+1. The strategizer first determines the interception point by finding the point at which the ball will cross the plane that goes through the center of the robot. 
+2. Based on the interception point, the strategizer determines the stroke parameters which is parameterized by three points:
+    1. **Start point:** joint space configuration at the swing's beginning
+    2. **Contact point:** joint space configuration at ball contact
+    3. **End point:** joint space configuration at the swing's completion
+These points are determined such that the arm is fully extended at contact point to maximize racket-head linear velocity while each joint is traveling at the maximum possible speed and staying within each individual joint's position, velocity, and acceleration limits. 
+3. As the arm would be fully extended at the contact point, the corresponding wheelchair position is geometrically determined using the robot kinematics and the interception point. Once, the position is determined the wheelchair is commanded to go to that position.
+4. Lastly, the strategizer identifies the exact time to trigger the stroke using the stroke duration and the time the ball takes to reach the interception point. The text in the paper is updated to make the process more clear.
+
+The pseudocode for the strategizer is provided below.
+<p align="center">
+    <img src="../../assets/img/software/algorithm.png" alt="Trapezoidal Trajectory Profiler" width="400" />
+</p>

@@ -126,8 +126,8 @@ Attach the tennis racket to the end of the robot arm using two bolted 3D printed
 
 Since the racket holder is an area of high stress during a swing, a visualization of the possible failure points within the part was created. This can be seen below where red areas indicate high stress. Based on this analysis and initial testing, zip ties were used to secure and stabilize the racket to the racket holder.
 <p style="text-align:center;">
-    <img width="49%" src="../../assets/img/racket_clamp_stress.png">
-    <img width="49%" src="../../assets/img/racket_clamp_stress_animation.gif">
+    <img width="49%" src="../../assets/img/mechanical/racket_clamp_stress.png">
+    <img width="49%" src="../../assets/img/mechanical/racket_clamp_stress_animation.gif">
 </p>
 
 
