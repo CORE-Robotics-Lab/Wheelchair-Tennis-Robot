@@ -21,5 +21,3 @@ Zulfiqar Zaidi, Daniel Martin, Nathaniel Belles, Viacheslav Zakharov, Arjun Kris
 <video width="100%" autoplay controls loop muted poster>
     <source src="assets/videos/iros.mp4" type="video/mp4">
 </video>
-
-![](https://komarev.com/ghpvc/?username=CORE-Robotics-Lab&label=View+Count&color=grey)
